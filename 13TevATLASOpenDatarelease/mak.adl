@@ -1,0 +1,66 @@
+define pi = 3.14159265359
+
+object goodEles : ELE
+  select lep_isTight(ELE) == 1
+  select Pt(ELE) > 20.0
+  select AbsEta(ELE) <   2.47
+  select AbsEta(ELE) ][ 1.37 1.52
+  select lep_ptcone30(ELE)/lep_pt(ELE) <   0.15
+  select lep_etcone20(ELE)/lep_pt(ELE) <   0.15
+  select abs(lep_trackd0pvunbiased(ELE))/lep_tracksigd0pvunbiased(ELE) < 5.0
+  select abs(lep_z0(ELE))*sin(Theta(ELE))< 0.5
+  
+object goodMuos : MUO
+  select lep_isTight(MUO) == 1
+  select Pt(MUO) > 20.0
+  select AbsEta(MUO) < 2.5 
+  select lep_ptcone30(MUO)/lep_pt(MUO) <   0.15
+  select lep_etcone20(MUO)/lep_pt(MUO) <   0.15 
+  select abs(lep_trackd0pvunbiased(MUO))/lep_tracksigd0pvunbiased(MUO) < 3
+  select abs(lep_z0(MUO)*sin(Theta(MUO))) < 0.5
+  
+object goodLepts : Union(goodEles, goodMuos)
+
+define Lumi : 10064 # 10 fb-1
+define sfc : scaleFactor_ELE*scaleFactor_MUON*scaleFactor_LepTRIGGER*scaleFactor_PILEUP
+define mcMcWeight = HSTEP(channelNumber > 310000) * mcWeight*Lumi*XSection*sfc/SumWeights 
+define dataWeight = HSTEP(channelNumber < 310000) * 1.0
+define totalWeight = dataWeight + mcMcWeight
+
+define Lepton1 = goodLepts[-1]
+define Lepton2 = goodLepts[-2]
+define Lepton3 = goodLepts[-3]
+
+define Zll = Lepton1 Lepton2
+define MTW : sqrt(2*Pt(Lepton3)MET(1 - cos(dPhi(Lepton3,METLV[0]))))
+
+define chi2 :  ( m(Zll) - 91.18 )^2 + (9999*pdgID(Zll))^2 + 0*MTW 
+
+region init
+  select ALL
+  select Size(goodEles) >= 0
+  select Size(goodMuos) >= 0
+  select Size(goodLepts) >= 0
+  sort Pt(goodLepts) descend
+ 
+
+region WZ
+  init
+  weight evtweigt totalWeight
+  select trigE == 1 || trigM == 1
+  select MET > 30
+  select Size(goodLepts) == 3
+  select chi2 ~= 0
+  select pdgID(Zll) == 0
+  select Pt(goodLepts) > 25
+  select Abs(m(Zll)- 91.18) < 10
+  select MTW > 30
+ 
+  histo hZllMass,"Zll Mass (GeV)",20,76,106,m(Zll)
+  histo hMET ,"Missing Transverse Momentum;E_{T}^{miss} [GeV];Events / bin",20,0,160,MET
+  histo hMTW ,"Transverse Mass; M^{W}_{T} [GeV];Events / bin",20,0,200,MTW
+  histo hPt3L,"Pt (GeV)",10,25,200,Pt(goodLepts)
+  histo hEta3L,"Eta",15,-3,3,Eta(goodLepts)
+  histo hPhi3L,"Phi",16,-3.2,3.2,Phi(goodLepts)
+  histo hE3L,"E (GeV)",15,0,300,E(goodLepts)
+  histo hPtZll,"Pt ll",20,0,400,Pt(Zll)
