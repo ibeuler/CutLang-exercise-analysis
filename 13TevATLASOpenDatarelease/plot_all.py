@@ -1201,6 +1201,7 @@ def plotting(region_name, hist_name, max_range):
     CLtext.SetTextColor(ROOT.kBlack)
     CLtext.DrawLatex(0.20,0.85,"#it{#bf{ATLAS}} Open Data")
     CLtext.DrawLatex(0.20,0.80,"for education")
+    CLtext.DrawLatex(0.20,0.70,"ibrahim's results")
 
     en_text = ROOT.TLatex()
     en_text.SetTextSize(0.03)
@@ -1753,14 +1754,14 @@ if __name__ == "__main__":
         plotting("ZZ","h4lpt",50)
 
     elif analysis_name == "WZ":
-        #plotting("WZDiBoson","hist_etmiss",350)
-        #plotting("WZDiBoson","hist_threelepteta",600)
-        #plotting("WZDiBoson","hist_threeleptphi",400)
-        #plotting("WZDiBoson","hist_threeleptpt",1900)
-        #plotting("WZDiBoson","hist_threeleptE",1100)
-        #plotting("WZDiBoson","hist_mtw",400)
-        #plotting("WZDiBoson","hist_mLL",400)
-        plotting("WZDiBoson","hist_ptLL",400)
+        #plotting("WZ","hist_etmiss",350)
+        #plotting("WZ","hist_threelepteta",600)
+        #plotting("WZ","hist_threeleptphi",400)
+        #plotting("WZ","hist_threeleptpt",1900)
+        #plotting("WZ","hist_threeleptE",1100)
+        #plotting("WZ","hist_mtw",400)
+        #plotting("WZ","hist_mLL",400)
+        plotting("WZ","hist_ptLL",400)
 
     elif analysis_name == "ttbar":
         plotting("TTbar","hist_leadjet_pt",1e8)

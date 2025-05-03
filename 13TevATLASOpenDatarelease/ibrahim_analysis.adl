@@ -22,12 +22,12 @@ object goodMuos
 	select Abs(lep_trackd0pvunbiased(MUO))/lep_tracksigd0pvunbiased(MUO) < 3.0
 	select Abs(lep_z0(MUO))*sin(Theta(MUO)) < 0.5
 
-object goodLeptons : Union(goodEles, goodMuos)
+object goodLeptons : Union(goodEles, goodMuos )
 define sfc = scaleFactor_ELE*scaleFactor_MUON*scaleFactor_LepTRIGGER*scaleFactor_PILEUP
 
 #what is the diffirance of : and =
-define mcMcWeight = HSTEP(channelNumber > 310000) * mcWeight*10064.0*XSection*sfc/SumWeights
-define dataWeight = HSTEP(channelNumber < 310000) * 1.0
+define mcMcWeight = HSTEP(channelNumber > 310000 ) * mcWeight*10064.0*XSection*sfc/SumWeights
+define dataWeight = HSTEP(channelNumber < 310000 ) * 1.0
 define totalWeight = dataWeight + mcMcWeight
 define Lep1 = goodLeptons[-1] 
 
@@ -38,7 +38,11 @@ define Lep3 = goodLeptons[-3]
 define Zll = Lep1 Lep2 
 #missing energy transverse formula
 define MTW = sqrt(2*Pt(Lep3)*MET*(1 - cos(dPhi(Lep3, METLV[0]))))
-define chi_squared = ( m(Zll) - 91.18)^2 + (9999*pdgID(Zll))^2 + 0*MTW
+
+define 3Lepton = Lep1 Lep2 Lep3
+define mtwz = sqrt(2*Pt(3Lepton)*MET*(1 - cos(dPhi(3Lepton, METLV[0]))))
+
+define chi_squared = ( m(Zll) - 91.18 )^2 + (9999*pdgID(Zll))^2 + 0*MTW
 
 region init
 	select ALL
@@ -56,13 +60,22 @@ region WZ
 	select chi_squared ~= 0
 	select pdgID(Zll) == 0
 	select Pt(goodLeptons) > 25
-	select Abs(m(Zll)-91.18) < 10
+	select Abs(m(Zll) - 91.18) < 10
 	select MTW > 30
 
-	histo hZllMass, "Zll Mass (GeV)",20,76,106,m(Zll)
-	histo hMET ,"Missing Transverse Momentum;E_{T}^{miss} [GeV];Events / bin",20,0,160,MET
-	histo hMTW ,"Transverse Mass; M^{W}_{T} [GeV];Events / bin",20,0,200,MTW
-	histo hPt3L,"Pt (GeV)",10,25,200,Pt(goodLeptons)
-	histo hEta3L,"Eta",15,-3,3,Eta(goodLeptons)
-	histo hPhi3L,"Phi",16,-3.2,3.2,Phi(goodLeptons)
-	histo hE3L,"E (GeV)",15,0,300,E(goodLeptons)
+	
+
+  ## Global histograms variables 
+  histo hist_mLL           ,"Mass of Dilepton System; m_{ll} [GeV];Events / bin", 20, 76, 106, m(Zll) 
+  histo hist_etmiss        ,"Missing Transverse Momentum;E_{T}^{miss} [GeV];Events / bin", 20, 0, 160, MET 
+  histo hist_mtw           ,"Transverse Mass; M^{W}_{T} [GeV];Events / bin", 20, 0, 200, MTW 
+  histo hist_mtwz          ,"Transverse Mass; M^{WZ}_{T} [GeV];Events / bin", 500, 0, 500, mtwz  
+  histo hist_ptLL          ,"Transverse momentum of Dilepton System; p^{ll}_{T} [GeV];Events / bin", 20, 0, 400, Pt(Zll)  
+
+  ## Lepton histograms
+  histo hist_threeleptpt   ," Lepton Transverse Momentum;p_{T}^{all lep} [GeV]; Leptons / bin", 10, 25, 200, Pt(goodLeptons) 
+  histo hist_threelepteta  ," Lepton Pseudorapidity; #eta^{all lep}; Leptons / bin", 15, -3, 3, Eta(goodLeptons) 
+  histo hist_threeleptE    ," Lepton Energy; E^{all lep} [GeV]; Leptons / bin", 15, 0, 300, E(goodLeptons) 
+  histo hist_threeleptphi  ," Lepton Azimuthal Angle ; #phi^{all lep}; Leptons / bin", 16, -3.2, 3.2, Phi(goodLeptons) 
+  histo hist_threeleptch   ," Lepton Charge; Q^{all lep}; Leptons / bin", 7, -1.75, 1.75, q(goodLeptons) 
+  histo hist_threeleptID   ," Lepton Absolute PDG ID; |PDG ID|^{all lep}; Leptons / bin",  15, 5.5, 20.5, Abs( pdgID(goodLeptons) ) 
