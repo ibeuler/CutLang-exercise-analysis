@@ -1,26 +1,7 @@
 #!/bin/bash
 
-# Get the current date for organizing results
-current_time=$(date "+%d.%m.%Y")
-WORKDIR="HZZ-ResultsCL-$current_time"
 
-# Create the working directory if it doesn't exist
-mkdir -p "$WORKDIR"
 
-# Read the file line by line
-while IFS= read -r link; do
-    # Extract filename from the link (removing directory path and extension)
-    filename=$(basename "$link" | sed 's/.root$//')
-    # Run the command with each link
-    CLA "$link" ATLASODR2 -i ibrahim_analysis.adl
-
-    # Check if CLA ran successfully
-    if [ $? -eq 0 ]; then
-        # Rename and move the output file to the working directory
-        mv histoOut-ibrahim_analysis.root "$WORKDIR/histoOut-${filename}.root"
-    fi
-done < data_links.txt
-#!/bin/bash
 
 # Check if an ADL file is provided as an argument
 if [ $# -lt 1 ]; then
@@ -54,6 +35,6 @@ while IFS= read -r link; do
     # Check if CLA ran successfully
     if [ $? -eq 0 ]; then
         # Rename and move the output file to the working directory
-        mv histoOut-ibrahim_analysis.root "$WORKDIR/histoOut-${filename}.root"
+        mv histoOut-${ADL_NAME}.root "$WORKDIR/histoOut-${filename}.root"
     fi
 done < data_links.txt
