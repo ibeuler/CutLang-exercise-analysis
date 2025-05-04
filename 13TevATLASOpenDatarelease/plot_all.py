@@ -1754,13 +1754,13 @@ if __name__ == "__main__":
         plotting("ZZ","h4lpt",50)
 
     elif analysis_name == "WZ":
-        #plotting("WZ","hist_etmiss",350)
-        #plotting("WZ","hist_threelepteta",600)
-        #plotting("WZ","hist_threeleptphi",400)
-        #plotting("WZ","hist_threeleptpt",1900)
-        #plotting("WZ","hist_threeleptE",1100)
-        #plotting("WZ","hist_mtw",400)
-        #plotting("WZ","hist_mLL",400)
+        plotting("WZ","hist_etmiss",350)
+        plotting("WZ","hist_threelepteta",600)
+        plotting("WZ","hist_threeleptphi",400)
+        plotting("WZ","hist_threeleptpt",1900)
+        plotting("WZ","hist_threeleptE",1100)
+        plotting("WZ","hist_mtw",400)
+        plotting("WZ","hist_mLL",400)
         plotting("WZ","hist_ptLL",400)
 
     elif analysis_name == "ttbar":
