@@ -1,8 +1,9 @@
 \documentclass{article}
 \usepackage{listings}
 \usepackage{xcolor}
-\usepackage[a4paper, margin=1in]{geometry}
+\usepackage[a4paper, margin=0.55in, top=0.5in]{geometry}
 \usepackage{hyperref}
+\usepackage{graphicx} % Required for including images and using \centering
 
 \lstset{
     basicstyle=\ttfamily\footnotesize,
@@ -28,11 +29,19 @@ The process of plotting histograms over each other using the provided \texttt{pl
 
 The files to combine are determined based on the reference tutorial for the analysis, as outlined in the following links:
 \begin{itemize}
-    \item \url{https://github.com/atlas-outreach-data-tools/atlas-outreach-cpp-framework-13tev/blob/688d73fb73a742a4e43912189411dcae4dec85e2/Plotting/Plotting.cxx}
-    \item \url{https://github.com/atlas-outreach-data-tools/atlas-outreach-cpp-framework-13tev/blob/master/Plotting/Plotting.cxx}
+    \item {\scriptsize \url{https://github.com/atlas-outreach-data-tools/atlas-outreach-cpp-framework-13tev/blob/688d73fb73a742a4e43912189411dcae4dec85e2/Plotting/Plotting.cxx}}
+    \item {\scriptsize \url{https://github.com/atlas-outreach-data-tools/atlas-outreach-cpp-framework-13tev/blob/master/Plotting/Plotting.cxx}}
 \end{itemize}
 
 These files should be combined with proper naming conventions to match the expected input of the \texttt{plot\_all.py} script. Ensure that the combined files are named appropriately (e.g., \texttt{data.root}, \texttt{V.root}, \texttt{VV.root}, etc.) to align with the script's requirements.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{IMAGES/united.png}
+    \caption{Example code screen shots of the \texttt{Plotting.cxx} script. Those lines should give you hints about the data and simulations you need to combine. This is for the WZ analysis, but similarly, you can find the same lines for other analysis.}
+    \label{fig:united}
+\end{figure}
 
 \subsection*{1. Combining \texttt{.root} Files}
 \begin{itemize}
@@ -47,6 +56,8 @@ hadd data.root file1.root file2.root file3.root
 \begin{lstlisting}[language=bash]
 hadd data.root file*.root
 \end{lstlisting}
+
+As a reference, you can find example commands in the \texttt{hadd.sh} script under the \url{https://github.com/ibeuler/CutLang-exercise-analysis} repository.
 
 \subsection*{2. Setting Up the \texttt{plot\_all.py} Script}
 \begin{itemize}
