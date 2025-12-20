@@ -1,0 +1,353 @@
+info analysis
+  title "ibeuler - ADL/CL Search for squarks and gluinos in final states with one isolated lepton, jets, and missing transverse momentum at sqrt(s) = 13 TeV with the ATLAS detector"
+countsformat SUSY
+  process PAPER_CUTFLOW, "PAPER_CUTFLOW"
+table ATLASBtageff
+  tabletype efficiency
+  nvars 1
+  errors false
+  0.56	0.0		30.0
+  0.65	30.0	40.0
+  0.70	40.0	60.0
+  0.75	60.0	85.0
+  0.76	85.0	110.0
+  0.76	110.0	140.0
+  0.77	140.0	175.0
+  0.74	175.0	250.0
+  0.72	250.0	9999.0
+object baselineEles 
+	take ELE
+	select Pt(ELE) > 7
+	select AbsEta(ELE) < 2.47
+	reject dR(ELE,JET) == min(0.4,0.04 + 10/Pt(ELE))
+object baselineMuos
+	take  MUO
+	select Pt(MUO) > 6
+	select AbsEta(MUO) < 2.7
+	reject dR(MUO,JET) == min(0.4,0.04 + 10/Pt(MUO))
+object baselinejets
+	take JET
+	select Pt(JET) > 20
+	select AbsEta(JET) < 4.5
+	reject dR(JET,ELE) == 0.2
+	reject dR(JET,MUO) == 0.2
+object goodJets
+  take JET
+  select pT(JET) > 30
+  select abs(eta(JET)) < 2.8 # 2.4
+object goodEles 
+	take baselineEles
+	select Pt(baselineEles) > 7
+	#select IsolationVarRhoCorr(baselineEles)/Pt(baselineEles) < 0.15
+	select AbsEta(ELE) < 2.47
+object goodMuos
+	take  baselineMuos
+	#select IsolationVarRhoCorr(baselineMuos)/Pt(baselineMuos) < 0.15
+	select AbsEta(baselineMuos) < 2.5
+object bjet
+  take goodJets
+  select BTag(goodJets) == 1
+  #select applyHM(ATLASBtageff(Pt(Jet)) == 1)
+object baselineLepts : Union(baselineEles, baselineMuos)
+object goodLepts : Union(goodEles, goodMuos)
+define Meff = Sum(Pt(goodJets)) + Pt(baselineLepts[0]) + MET
+define MTL = sqrt(2*Pt(goodLepts[0])*MET*(1 - cos(Phi(METLV[0]) - Phi(goodLepts[0]))))
+define ratio = MET/Meff
+define AnaAplanarity : fAplanarity(goodLepts) + fAplanarity(goodJets)
+
+region 2JB
+	weight evtweigt 0.4061 # 10080/24816 = 0.4061
+	counts SUSY 10080 +- 220
+	select Size(goodJets) >= 2
+	counts SUSY 9530 +- 210 #done
+	select Size(goodEles) >= 0
+	counts SUSY 9530 +- 210 #done
+	select Size(goodMuos) >= 0
+	counts SUSY 9530 +- 210 #done
+	select Size(goodLepts) == 1 
+	counts SUSY 7130 +- 180 #done
+	Sort Pt(goodLepts) descend
+	counts SUSY 7130 +- 180 #done
+	#select Size(baselineLepts) == 0 # second baseline veto?
+	#counts SUSY 6750 +- 180
+	select MTL > 50
+	counts SUSY 4460 +- 150
+	#select Pt(goodEles) < mixn(10*Size(goodJets),25) || Pt(goodMuos) < min(10*Size(goodJets),25) 
+	select MET > 250 # && MET > 150 = MET_trigg
+	counts SUSY 2160 +- 60
+	select Pt(goodLepts) < 25
+	counts SUSY 1150 +- 50
+	select MET > 400 
+	counts SUSY 492 +- 29
+	select Size(bjet) > 0
+	counts SUSY 89 +- 12
+	select ratio > 0.25
+	counts SUSY 89 +- 12
+	# N_jet > Pt(leps)/10 ???
+	# counts SUSY 85 +- 12ğ
+	select MTL > 100
+	counts SUSY 58 +-10
+	bin Meff [] 700 1300
+	bin Meff [] 1300 1900
+	bin Meff > 1900
+region 2JBveto
+	weight evtweigt 0.4061 # 10080/24816 = 0.4061
+	counts SUSY 10080 +- 220
+	select Size(goodJets) >= 2
+	counts SUSY 9530 +- 210 #done
+	select Size(goodEles) >= 0
+	counts SUSY 9530 +- 210 #done
+	select Size(goodMuos) >= 0
+	counts SUSY 9530 +- 210 #done
+	select Size(goodLepts) == 1 
+	counts SUSY 7130 +- 180 #done
+	Sort Pt(goodLepts) descend
+	counts SUSY 7130 +- 180 #done
+	#select Size(baselineLepts) == 0 # second baseline veto?
+	#counts SUSY 6750 +- 180
+	select MTL > 50
+	counts SUSY 4460 +- 150
+	#select Pt(goodEles) < mixn(10*Size(goodJets),25) || Pt(goodMuos) < min(10*Size(goodJets),25) 
+	select MET > 250 # && MET > 150 = MET_trigg
+	counts SUSY 2160 +- 60
+	select Pt(goodLepts) < 25
+	counts SUSY 1150 +- 50
+	select MET > 400 
+	counts SUSY 492 +- 29
+	select Size(bjet) == 0
+	counts SUSY 402 +- 26
+	select ratio > 0.25
+	counts SUSY 402 +- 26
+	# N_jet > Pt(leps)/10 ???
+	# counts SUSY 85 +- 12
+	select MTL > 100
+	counts SUSY 251 +-21
+	bin Meff [] 700 1300
+	bin Meff [] 1300 1900
+	bin Meff > 1900
+region 4JLowxB
+	select ALL
+	counts SUSY 33354 +- 0
+	select ALL
+	counts SUSY 33354 +- 0
+	weight evtweigt 500/33354
+	counts SUSY 500 +- 8
+	#select Size(goodJets) == 4 || Size(goodJets) == 5
+	select Size(goodJets) >= 2
+	counts SUSY 499 +- 8
+	select Size(goodEles) >= 0
+	counts SUSY 499 +- 8 #done
+	select Size(goodMuos) >= 0
+	counts SUSY 499 +- 8
+	select Size(goodLepts) == 1 
+	counts SUSY 388 +- 7
+	Sort Pt(goodLepts) descend
+	counts SUSY 388 +- 7
+	select MTL > 50
+	counts SUSY 306 +- 6
+	select MET > 250 # && MET > 150 = MET_trigg
+	counts SUSY 234 +- 3.3
+	select Pt(goodLepts) > 25
+	counts SUSY 215 +- 3.2
+	select Size(goodJets) [] 4 6
+	counts SUSY 35.5 +- 1.3
+	select Size(bjet) > 0
+	counts SUSY 9.2 +- 0.6
+	select MET > 300
+	counts SUSY 8.2 +- 0.6
+	select ratio > 0.2
+	counts SUSY 4.8 +- 0.5
+	select AnaAplanarity > 0.01
+	counts SUSY 4.5 +- 0.5
+	select Meff > 1000
+	counts SUSY 4.5 +- 0.5
+	select MTL [] 150 520
+	counts SUSY 2.6 +- 0.34
+	bin Meff [] 1000 1600
+	bin Meff [] 1600 2200
+	bin Meff > 2200
+region 4JLowxBveto
+	select ALL
+	counts SUSY 33354 +- 0
+	weight evtweigt 500/33354
+	counts SUSY 500 +- 8
+	#select Size(goodJets) == 4 || Size(goodJets) == 5
+	select Size(goodJets) >= 2
+	counts SUSY 499 +- 8
+	select Size(goodEles) >= 0
+	counts SUSY 499 +- 8 #done
+	select Size(goodMuos) >= 0
+	counts SUSY 499 +- 8 #done
+	select Size(goodLepts) == 1 
+	counts SUSY 388 +- 7
+	Sort Pt(goodLepts) descend
+	counts SUSY 388 +- 7
+	select MTL > 50
+	counts SUSY 306 +- 6
+	select MET > 250 # && MET > 150 = MET_trigg
+	counts SUSY 234 +- 3.3
+	select Pt(goodLepts) > 25
+	counts SUSY 215 +- 3.2
+	select Size(goodJets) [] 4 6
+	counts SUSY 35.5 +- 1.3
+	select Size(bjet) == 0
+	counts SUSY 26.4 +- 1.1
+	select MET > 300
+	counts SUSY 23.6 +- 1.1
+	select ratio > 0.2
+	counts SUSY 13.8 +- 0.8
+	select AnaAplanarity > 0.01
+	counts SUSY 12.5 +- 0.8
+	select Meff > 1000
+	counts SUSY 12.5 +- 0.8
+	select MTL [] 150 520
+	counts SUSY 6.9 +- 0.6
+	bin Meff [] 1000 1600
+	bin Meff [] 1600 2200
+	bin Meff > 2200
+#----------------------------------------------------------------
+region 4JHighxB
+	select ALL
+	counts SUSY 33354 +- 0
+	select ALL
+	counts SUSY 33354 +- 0
+	weight evtweigt 500/33354
+	counts SUSY 500 +- 8
+	#select Size(goodJets) == 4 || Size(goodJets) == 5
+	select Size(goodJets) >= 2
+	counts SUSY 499 +- 8
+	select Size(goodEles) >= 0
+	counts SUSY 499 +- 8 #done
+	select Size(goodMuos) >= 0
+	counts SUSY 499 +- 8 #done
+	select Size(goodLepts) == 1 
+	counts SUSY 388 +- 7
+	Sort Pt(goodLepts) descend
+	counts SUSY 388 +- 7
+	select MTL > 50
+	counts SUSY 306 +- 6
+	select MET > 250 # && MET > 150 = MET_trigg
+	counts SUSY 234 +- 3.3
+	select Pt(goodLepts) > 25
+	counts SUSY 215 +- 3.2
+	select Size(goodJets) [] 4 6
+	counts SUSY 35.5 +- 1.3
+	select Size(bjet) > 0
+	counts SUSY 9.2 +- 0.6
+	select MET > 300
+	counts SUSY 8.2 +- 0.6
+	select ratio > 0.2
+	counts SUSY 4.8 +- 0.5
+	select AnaAplanarity > 0.01
+	counts SUSY 4.5 +- 0.5
+	select Meff > 1000
+	counts SUSY 4.5 +- 0.5
+	select MTL > 520
+	counts SUSY 2.6 +- 0.34
+	bin Meff [] 1000 1600
+	bin Meff [] 1600 2200
+	bin Meff > 2200
+region 4JHighxBveto
+	select ALL
+	counts SUSY 33354 +- 0
+	weight evtweigt 500/33354
+	counts SUSY 500 +- 8
+	#select Size(goodJets) == 4 || Size(goodJets) == 5
+	select Size(goodJets) >= 2
+	counts SUSY 499 +- 8
+	select Size(goodEles) >= 0
+	counts SUSY 499 +- 8 #done
+	select Size(goodMuos) >= 0
+	counts SUSY 499 +- 8 #done
+	select Size(goodLepts) == 1 
+	counts SUSY 388 +- 7
+	Sort Pt(goodLepts) descend
+	counts SUSY 388 +- 7
+	select MTL > 50
+	counts SUSY 306 +- 6
+	select MET > 250 # && MET > 150 = MET_trigg
+	counts SUSY 234 +- 3.3
+	select Pt(goodLepts) > 25
+	counts SUSY 215 +- 3.2
+	select Size(goodJets) [] 4 6
+	counts SUSY 35.5 +- 1.3
+	select Size(bjet) == 0
+	counts SUSY 26.4 +- 1.1
+	select MET > 300
+	counts SUSY 23.6 +- 1.1
+	select ratio > 0.2
+	counts SUSY 13.8 +- 0.8
+	select AnaAplanarity > 0.01
+	counts SUSY 12.5 +- 0.8
+	select Meff > 1000
+	counts SUSY 12.5 +- 0.8
+	select MTL > 520
+	counts SUSY 6.9 +- 0.6
+	bin Meff [] 1000 1600
+	bin Meff [] 1600 2200
+	bin Meff > 2200
+#----------------------------------------------------------------
+region 6JB
+	weight evtweigt 386/30469
+	counts SUSY 386 +- 6
+    select Size(goodJets) >=  2
+	counts SUSY 385 +- 6
+	select Size(goodLepts) == 1 
+	counts SUSY 295 +- 5
+	Sort Pt(goodLepts) descend
+	counts SUSY 295 +- 5
+	select MTL > 50
+	counts SUSY 253 +- 5
+	select MET > 250 # && MET > 150 = MET_trigg
+	counts SUSY 202.3 +- 2.7
+    select Pt(goodLepts) > 25
+	counts SUSY 190.8 +- 2.6
+	select Size(goodJets) >=  6
+	counts SUSY 62.1 +- 1.5
+	select Size(bjet) > 0
+	counts SUSY 18.2 +- 0.8
+	select AnaAplanarity > 0.01
+	counts SUSY 17.7 +- 0.8
+    select Meff > 700
+	counts SUSY 17.7 +- 0.8
+	select MET > 300
+	counts SUSY 16.1 +- 0.7
+	select MTL > 250
+	counts SUSY 12.0 +- 0.6
+	bin Meff [] 700 1400
+	bin Meff [] 1400 2100
+	bin Meff [] 2100 2800
+	bin Meff > 2800
+region 6JBveto
+	weight evtweigt 386/30469
+	counts SUSY 386 +- 6
+    select Size(goodJets) >=  2
+	counts SUSY 385 +- 6
+	select Size(goodLepts) == 1 
+	counts SUSY 295 +- 5
+	Sort Pt(goodLepts) descend
+	counts SUSY 295 +- 5
+	select MTL > 50
+	counts SUSY 253 +- 5
+	select MET > 250 # && MET > 150 = MET_trigg
+	counts SUSY 202.3 +- 2.7
+    select Pt(goodLepts) > 25
+	counts SUSY 190.8 +- 2.6
+	select Size(goodJets) >=  6
+	counts SUSY 62.1 +- 1.5
+	select Size(bjet) == 0
+	counts SUSY 43.9 +- 1.2
+	select AnaAplanarity > 0.01
+	counts SUSY 42.5 +- 1.2
+    select Meff > 700
+	counts SUSY 42.5 +- 1.2
+	select MET > 300
+	counts SUSY 38.4 +- 1.2
+	select MTL > 250
+	counts SUSY 27.5 +- 1.0
+	bin Meff [] 700 1400
+	bin Meff [] 1400 2100
+	bin Meff [] 2100 2800
+	bin Meff > 2800
+
+# 2JB 2JBveto 4JLowxB 4JLowxBveto 4JHighxB 4JHighxBveto 6JB 6JBveto

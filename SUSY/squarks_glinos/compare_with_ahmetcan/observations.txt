@@ -1,0 +1,7 @@
+
+
+MY OBSERVATIONS AFTER COMPARING WISH AHMETCAN'S HISTOOUT ROOT FILES
+ 
+- in 2J regions the weights of ahmetcan's adls is doubled. we see a consistent semi doubled selection cutflow results 
+- my b-veto (b tagged jets == 0 in size) selections may be errored or incompleate... bc the dramatic fall in events after the cut 
+- in 4J regions have used slightly wrong weight assignments.

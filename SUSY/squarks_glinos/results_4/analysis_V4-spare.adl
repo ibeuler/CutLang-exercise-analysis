@@ -1,0 +1,169 @@
+info analysis
+  title "ibeuler - ADL/CL Search for squarks and gluinos in final states with one isolated lepton, jets, and missing transverse momentum at sqrt(s) = 13 TeV with the ATLAS detector"
+countsformat SUSY
+  process PAPER_CUTFLOW, "PAPER_CUTFLOW"
+object baselineEles 
+	take ELE
+	select Pt(ELE) > 7
+	select AbsEta(ELE) < 2.47
+object baselineMuos
+	take  MUO
+	select Pt(MUO) > 6
+	select AbsEta(MUO) < 2.5
+object goodJets
+  take JET
+  select pT(JET) > 30
+  select abs(eta(JET)) < 2.4
+object goodEles 
+	take baselineEles
+	# select IsolationVar(ELE) < 0.15
+	select AbsEta(ELE) < 2.47
+object goodMuos
+	take  baselineMuos
+	# select IsolationVar(MUO) < 0.15
+	select AbsEta(MUO) < 2.5
+table ATLASBtageff
+  tabletype efficiency
+  nvars 1
+  errors false
+  0.56	0.0		30.0
+  0.65	30.0	40.0
+  0.70	40.0	60.0
+  0.75	60.0	85.0
+  0.76	85.0	110.0
+  0.76	110.0	140.0
+  0.77	140.0	175.0
+  0.74	175.0	250.0
+  0.72	250.0	9999.0
+object bjet
+  take Jet
+  select applyHM(ATLASBtageff(Pt(Jet)) == 1)
+object baselineLepts : Union(baselineEles, baselineMuos)
+object goodLepts : Union(goodEles, goodMuos)
+define Meff = Sum(Pt(goodJets)) + Pt(baselineLepts[0]) + MET
+define MTW = sqrt(2*Pt(baselineLepts[0])*MET*(1 - cos(dPhi(baselineLepts[0], METLV[0]))))
+define ratio = MET/Meff
+region initB
+	select ALL
+	select Size(goodJets) >= 1
+	select Size(bjet) >= 1 
+	# select Size(goodJets) >=1 ? BTag(goodJets) ==1 : Size(goodJets) == 0 
+region 2JB
+	weight evtweigt 10080/24816
+	counts SUSY 10070 +- 220 # 1
+	select Size(goodJets) >= 2
+	counts SUSY 9530 +- 210 # 2
+	#... signal size >= 0
+	select Size(goodLepts) == 1 
+	counts SUSY 7130 +- 180 #done
+	#select Size(baselineLepts) == 0 # second baseline veto?
+	#counts SUSY 6750 +- 180
+	select MTW > 50
+	counts SUSY 4460 +- 150
+	#select Pt(goodEles) < mixn(10*Size(goodJets),25) || Pt(goodMuos) < min(10*Size(goodJets),25) 
+	select MET > 250 # && MET > 150 = MET_trigg
+	counts SUSY 2160 +- 60
+	select Pt(goodLepts) < 25
+	counts SUSY 1150 +- 50
+	select MET > 400 
+	counts SUSY 492 +- 29
+	select Size(bjet) > 0
+	counts SUSY 89 +- 12
+	select ratio > 0.25
+	counts SUSY 89 +- 12
+	# N_jet > Pt(leps)/10 ???
+	# counts SUSY 85 +- 12ğ
+	select MTW > 100
+	counts SUSY 58 +-10
+	bin Meff [] 700 1300
+	bin Meff [] 1300 1900
+	bin Meff > 1900
+region 4JLowxB
+    initB
+	weight evtweigt 500/24816
+
+	select Size(goodJets) == 4 || Size(goodJets) == 5
+	select Pt(baselineLepts) >= 25
+	select MET > 300
+	select MTW [] 150 520
+	select fAplanarity(goodJets) > 0.01
+	select ratio > 0.2
+	bin Meff [] 1000 1600
+	bin Meff [] 1600 2200
+	bin Meff > 2200
+region 4JHighxB
+    initB
+	weight evtweigt 168.5/24816
+    select Size(goodJets) == 4 || Size(goodJets) == 5
+	select Pt(baselineLepts) >= 25
+	select MET > 300
+	select MTW > 520
+	select fAplanarity(goodJets) > 0.01
+	select ratio > 0.2
+	bin Meff [] 1000 1600
+	bin Meff [] 1600 2200
+	bin Meff > 2200
+region 6JB
+    initB
+	weight evtweigt 386/24816
+    select Size(goodJets) >  6
+    select Pt(baselineLepts) >= 25
+    select MET > 300
+	select MTW > 250
+	select fAplanarity(goodJets) > 0.05
+	bin Meff [] 700 1400
+	bin Meff [] 1400 2100
+	bin Meff [] 2100 2800
+	bin Meff > 2800
+region initBveto
+	select ALL
+	select Size(baselineLepts) == 1
+	select Size(goodJets) == 0
+	select Size(bjet) == 0
+region 2JBveto
+	initBveto
+	weight evtweigt 10080/24816
+	select Pt(baselineEles) [] 7 min(10*Size(goodJets),25) || Pt(baselineMuos) [] 6 min(10*Size(goodJets),25) 
+    select Size(goodJets) >= 2
+	select MET > 400
+	select MTW > 100
+	select ratio > 0.25
+	bin Meff [] 700 1300
+	bin Meff [] 1300 1900
+	bin Meff > 1900
+region 4JLowxBveto
+    initBveto
+	weight evtweigt 500/24816
+	select Size(goodJets) == 4 || Size(goodJets) == 5
+	select Pt(baselineLepts) >= 25
+	select MET > 300
+	select MTW [] 150 520
+	select fAplanarity(goodJets) > 0.01
+	select ratio > 0.2
+	bin Meff [] 1000 1600
+	bin Meff [] 1600 2200
+	bin Meff > 2200
+region 4JHighxBveto
+    initBveto
+	weight evtweigt 168.5/24816
+    select Size(goodJets) == 4 || Size(goodJets) == 5
+	select Pt(baselineLepts) >= 25
+	select MET > 300
+	select MTW > 520
+	select fAplanarity(goodJets) > 0.01
+	select ratio > 0.2
+	bin Meff [] 1000 1600
+	bin Meff [] 1600 2200
+	bin Meff > 2200
+region 6JBveto
+    initBveto
+	weight evtweigt 386/24816
+    select Size(goodJets) >  6
+    select Pt(baselineLepts) >= 25
+    select MET > 300
+	select MTW > 250
+	select fAplanarity(goodJets) > 0.05
+	bin Meff [] 700 1400
+	bin Meff [] 1400 2100
+	bin Meff [] 2100 2800
+	bin Meff > 2800
