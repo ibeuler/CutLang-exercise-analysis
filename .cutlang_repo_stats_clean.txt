@@ -1,0 +1,20 @@
+N_ADL=18
+N_CUTFLOW_CSV=102
+N_UNIQUE_REGIONS_FROM_CSV=32
+N_REGIONS_TXT_FILES=12
+N_UNIQUE_REGIONS_FROM_TXT=8
+PLOTS_PNG=40
+PLOTS_PDF=11
+TABLES_XLSX=24
+DATA_ROOT=91
+TOP_OUTPUT_DIRS:
+43	./13TevATLASOpenDatarelease/WZ/WZ-ResultsCL-ibrahim_analysis-03.05.2025_11h
+35	./13TevATLASOpenDatarelease/WZ/WZ-ResultsCL-01.05.2025
+34	./SUSY/SUSY-2018-10/ibo_ahmetcan_paper_3/csv/plots
+26	./13TevATLASOpenDatarelease/WZ
+24	./SUSY/SUSY-2018-10/ibo_ahmetcan_paper_3/csv/details
+13	./.git/hooks
+11	./SUSY/SUSY-2018-10/ibo_ahmetcan_paper_3/csv
+8	./SUSY/SUSY-2018-10/ibo_ahmetcan_paper_3/exel
+8	./SUSY/SUSY-2018-10/ibo_ahmetcan_paper_2/exel
+8	./SUSY/SUSY-2018-10/ibo_ahmetcan_paper_2/csv
