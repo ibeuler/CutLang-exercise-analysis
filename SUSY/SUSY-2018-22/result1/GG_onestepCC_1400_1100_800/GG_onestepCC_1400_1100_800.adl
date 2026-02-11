@@ -1,0 +1,122 @@
+info analysis
+  title "ibeuler - SUSY-2018-22 (jets+MET) cutflow-based SR definitions"
+
+countsformat SUSY
+  process PAPER_CUTFLOW, "PAPER_CUTFLOW"
+
+object baselinejets
+	take JET
+	select Pt(JET) > 20
+	select AbsEta(JET) < 4.5
+
+object goodJets
+	take JET
+	select Pt(JET) > 30
+	select AbsEta(JET) < 2.8
+
+define HT = Sum(Pt(goodJets))
+define Meff = HT + MET
+# metSig represents the significance of missing transverse energy (MET)
+# normalized by the square root of scalar sum of jet transverse momenta (HT).
+# This metric is used to distinguish signal events from background noise by
+# quantifying how anomalous the missing energy is relative to the event's
+# total hadronic activity. Higher metSig values indicate more significant
+# and genuine missing energy, typical of SUSY processes with weakly
+# interacting particles, making it a powerful discriminant for SUSY searches.
+define metSig = MET/sqrt(HT)
+define Aplanarity = fAplanarity(goodJets)
+
+# Composite jet systems for invariant masses (m() returns GeV)
+define J12 = goodJets[0] goodJets[1]
+define J1234 = goodJets[0] goodJets[1] goodJets[2] goodJets[3]
+define J123456 = goodJets[0] goodJets[1] goodJets[2] goodJets[3] goodJets[4] goodJets[5]
+define mjj = m(J12)
+define m4j = m(J1234)
+define m6j = m(J123456)
+
+# N-jet effective masses (used by GG regions)
+define Meff4 = MET + Pt(goodJets[0]) + Pt(goodJets[1]) + Pt(goodJets[2]) + Pt(goodJets[3])
+define Meff5 = Meff4 + Pt(goodJets[4])
+define Meff6 = Meff5 + Pt(goodJets[5])
+
+# Convenience delta φ requirements (implemented as per-jet cuts + guards)
+define dphi1 = dPhi(goodJets[0], METLV[0])
+define dphi2 = dPhi(goodJets[1], METLV[0])
+define dphi3 = dPhi(goodJets[2], METLV[0])
+define dphi4 = dPhi(goodJets[3], METLV[0])
+define dphi5 = dPhi(goodJets[4], METLV[0])
+define dphi6 = dPhi(goodJets[5], METLV[0])
+
+# -----------------------------------------------------------------------------
+# SR6j (RefCutflow/Cutflow_3.png)
+
+region SR6j_1000
+	select ALL
+	weight evtweigt 26883/3948
+	select MET > 300
+	select Pt(goodJets[0]) > 200
+	select Meff > 800
+	select Size(goodJets) >= 2
+	# Cleaning cuts (paper step)
+	# select <CLEANING_FLAG> == 1
+	select Size(goodJets) >= 6
+	# ΔΦ(j1,2,(3), MET)min > 0.4
+	select dphi1 > 0.4
+	select dphi2 > 0.4
+	select dphi3 > 0.4
+	# ΔΦ(j_i>3, MET)min > 0.2 (j4..j6)
+	select dphi4 > 0.2
+	select dphi5 > 0.2
+	select dphi6 > 0.2
+	# pT(j6) > 75 GeV
+	select Pt(goodJets[5]) > 75
+	# |m(j1..j6)| < 2.0 TeV
+	select m6j < 2000
+	select Aplanarity > 0.08
+	select metSig > 16
+	select Meff > 1000
+
+region SR6j_2200
+	select ALL
+	weight evtweigt 26883/3948
+	select MET > 300
+	select Pt(goodJets[0]) > 200
+	select Meff > 800
+	select Size(goodJets) >= 2
+	# Cleaning cuts (paper step)
+	# select <CLEANING_FLAG> == 1
+	select Size(goodJets) >= 6
+	select dphi1 > 0.4
+	select dphi2 > 0.4
+	select dphi3 > 0.4
+	select dphi4 > 0.2
+	select dphi5 > 0.2
+	select dphi6 > 0.2
+	select Pt(goodJets[5]) > 75
+	select m6j < 2000
+	select Aplanarity > 0.08
+	select metSig > 16
+	select Meff > 2200
+
+region SR6j_3400
+	select ALL
+	weight evtweigt 26883/3948
+	select MET > 300
+	select Pt(goodJets[0]) > 200
+	select Meff > 800
+	select Size(goodJets) >= 2
+	# Cleaning cuts (paper step)
+	# select <CLEANING_FLAG> == 1
+	select Size(goodJets) >= 6
+	select dphi1 > 0.4
+	select dphi2 > 0.4
+	select dphi3 > 0.4
+	select dphi4 > 0.2
+	select dphi5 > 0.2
+	select dphi6 > 0.2
+	select Pt(goodJets[5]) > 75
+	select m6j < 2000
+	select Aplanarity > 0.08
+	# RefCutflow indicates MET/sqrt(HT) > 10 for the highest Meff SR
+	select metSig > 10
+	select Meff > 3400
