@@ -26,6 +26,25 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 
 
+BASE_DIR = Path(__file__).resolve().parent
+OUT_DIR = BASE_DIR / "out"
+OUT_PDFS_DIR = OUT_DIR / "pdfs"
+OUT_CSV_DIR = OUT_DIR / "csv"
+
+
+def _default_csv_path(name: str) -> Path:
+	"""Prefer out/csv/<name> if present; fall back to root-level <name>."""
+	preferred = OUT_CSV_DIR / name
+	if preferred.exists():
+		return preferred
+	return BASE_DIR / name
+
+
+def _default_pdf_path(name: str) -> Path:
+	OUT_PDFS_DIR.mkdir(parents=True, exist_ok=True)
+	return OUT_PDFS_DIR / name
+
+
 def _read_csv(path: Path) -> list[dict[str, str]]:
 	with path.open("r", newline="") as f:
 		reader = csv.DictReader(f)
@@ -203,12 +222,12 @@ def render_hist_integrals(*, integrals_csv: Path, out_pdf: Path):
 
 def main(argv: list[str] | None = None) -> int:
 	ap = argparse.ArgumentParser()
-	ap.add_argument("--cutflow", default="cutflow_table.csv")
-	ap.add_argument("--final", default="final_yields_summary.csv")
-	ap.add_argument("--integrals", default="hist_integrals_summary.csv")
-	ap.add_argument("--out-cutflow-pdf", default="cutflow_tables.pdf")
-	ap.add_argument("--out-final-pdf", default="final_yields_summary.pdf")
-	ap.add_argument("--out-integrals-pdf", default="hist_integrals_summary.pdf")
+	ap.add_argument("--cutflow", default=str(_default_csv_path("cutflow_table.csv")))
+	ap.add_argument("--final", default=str(_default_csv_path("final_yields_summary.csv")))
+	ap.add_argument("--integrals", default=str(_default_csv_path("hist_integrals_summary.csv")))
+	ap.add_argument("--out-cutflow-pdf", default=str(_default_pdf_path("cutflow_tables.pdf")))
+	ap.add_argument("--out-final-pdf", default=str(_default_pdf_path("final_yields_summary.pdf")))
+	ap.add_argument("--out-integrals-pdf", default=str(_default_pdf_path("hist_integrals_summary.pdf")))
 	args = ap.parse_args(argv)
 
 	cutflow_csv = Path(args.cutflow)

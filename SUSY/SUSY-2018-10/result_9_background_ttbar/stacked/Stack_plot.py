@@ -2,18 +2,38 @@ import ROOT
 import os
 import ctypes
 import csv
+from pathlib import Path
 
 # Avoid ROOT's web-based canvas (needs a browser to export images).
 ROOT.gROOT.SetBatch(True)
 ROOT.gEnv.SetValue("Canvas.Name", "TRootCanvas")
 ROOT.gStyle.SetOptStat(0)
 
-ttbar = ROOT.TFile("ttbar.root", "READ")
-signal = ROOT.TFile("susy-signal.root", "READ")
+BASE_DIR = Path(__file__).resolve().parent
+INPUTS_DIR = BASE_DIR / "inputs"
+OUT_DIR = BASE_DIR / "out"
+OUT_PDFS_DIR = OUT_DIR / "pdfs"
+OUT_CSV_DIR = OUT_DIR / "csv"
+
+
+def _pick_input_file(filename: str) -> str:
+	"""Prefer inputs/<filename> if present; fall back to <filename> in base dir."""
+	candidate = INPUTS_DIR / filename
+	if candidate.exists():
+		return str(candidate)
+	return str(BASE_DIR / filename)
+
+
+OUT_PDFS_DIR.mkdir(parents=True, exist_ok=True)
+OUT_CSV_DIR.mkdir(parents=True, exist_ok=True)
+
+ttbar = ROOT.TFile(_pick_input_file("ttbar.root"), "READ")
+signal = ROOT.TFile(_pick_input_file("susy-signal.root"), "READ")
 
 data = None
-if os.path.exists("data.root"):
-	data = ROOT.TFile("data.root", "READ")
+data_path = Path(_pick_input_file("data.root"))
+if data_path.exists():
+	data = ROOT.TFile(str(data_path), "READ")
 
 regions = [
 	"2JB",
@@ -274,7 +294,7 @@ def _print_region_summaries():
 		)
 
 	# Write CSV outputs.
-	with open("cutflow_table.csv", "w", newline="") as f:
+	with open(OUT_CSV_DIR / "cutflow_table.csv", "w", newline="") as f:
 		writer = csv.DictWriter(
 			f,
 			fieldnames=["region", "bin", "cut", "data", "data_err", "ttbar", "ttbar_err", "signal", "signal_err"],
@@ -282,7 +302,7 @@ def _print_region_summaries():
 		writer.writeheader()
 		writer.writerows(cutflow_rows)
 
-	with open("final_yields_summary.csv", "w", newline="") as f:
+	with open(OUT_CSV_DIR / "final_yields_summary.csv", "w", newline="") as f:
 		writer = csv.DictWriter(
 			f,
 			fieldnames=["region", "final_cut", "data", "data_err", "ttbar", "ttbar_err", "signal", "signal_err"],
@@ -290,7 +310,7 @@ def _print_region_summaries():
 		writer.writeheader()
 		writer.writerows(final_rows)
 
-	with open("hist_integrals_summary.csv", "w", newline="") as f:
+	with open(OUT_CSV_DIR / "hist_integrals_summary.csv", "w", newline="") as f:
 		writer = csv.DictWriter(
 			f,
 			fieldnames=["region", "hist", "sample", "value", "error"],
@@ -302,7 +322,7 @@ def _print_region_summaries():
 _print_region_summaries()
 
 _make_multipage_pdf(
-	out_pdf="cutflow_plots.pdf",
+	out_pdf=str(OUT_PDFS_DIR / "cutflow_plots.pdf"),
 	title="Cutflow",
 	x_title="Cutflow step",
 	y_title="Events",
@@ -311,7 +331,7 @@ _make_multipage_pdf(
 )
 
 _make_multipage_pdf(
-	out_pdf="Meff_plots.pdf",
+	out_pdf=str(OUT_PDFS_DIR / "Meff_plots.pdf"),
 	title="M_{eff}",
 	x_title="M_{eff} [GeV]",
 	y_title="Events",
@@ -320,7 +340,7 @@ _make_multipage_pdf(
 )
 
 _make_multipage_pdf(
-	out_pdf="MTL_plots.pdf",
+	out_pdf=str(OUT_PDFS_DIR / "MTL_plots.pdf"),
 	title=r"M_{T}^{\\ell}",
 	x_title=r"M_{T}^{\\ell} [GeV]",
 	y_title="Events",
