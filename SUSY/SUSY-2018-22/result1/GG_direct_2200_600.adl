@@ -2,28 +2,28 @@ info analysis
   title "ibeuler - SUSY-2018-22 (jets+MET) cutflow-based SR definitions"
 
 countsformat SUSY
-  process PAPER_CUTFLOW, "PAPER_CUTFLOW"
+  process PAPERCUTFLOW, "PAPERCUTFLOW"
 
 object baselinejets
-	take JET
-	select Pt(JET) > 20
-	select AbsEta(JET) < 4.5
+	take Jet
+	select Pt(Jet) > 20
+	select AbsEta(Jet) < 4.5
 
 object goodJets
-	take JET
-	select Pt(JET) > 30
-	select AbsEta(JET) < 2.8
+	take Jet
+	select Pt(Jet) > 30
+	select AbsEta(Jet) < 2.8
 
 define HT = Sum(Pt(goodJets))
 define Meff = HT + MET
-# metSig represents the significance of missing transverse energy (MET)
+# METsqrtHT represents the significance of missing transverse energy (MET)
 # normalized by the square root of scalar sum of jet transverse momenta (HT).
 # This metric is used to distinguish signal events from background noise by
 # quantifying how anomalous the missing energy is relative to the event's
-# total hadronic activity. Higher metSig values indicate more significant
+# total hadronic activity. Higher METsqrtHT values indicate more significant
 # and genuine missing energy, typical of SUSY processes with weakly
 # interacting particles, making it a powerful discriminant for SUSY searches.
-define metSig = MET/sqrt(HT)
+define METsqrtHT = MET/sqrt(HT)
 define Aplanarity = fAplanarity(goodJets)
 
 # Composite jet systems for invariant masses (m() returns GeV)
@@ -48,56 +48,56 @@ define dphi5 = dPhi(goodJets[4], METLV[0])
 define dphi6 = dPhi(goodJets[5], METLV[0])
 
 # -----------------------------------------------------------------------------
-# SR4j / SR5j (RefCutflow/Cutflow_2.png)
+# SR4j / SR5j (RefCutflow/Cutflow2.png)
 
-region SR4j_1000
+region SR4j1000
 	select ALL
 	weight evtweigt 28921/49.5
 	select MET > 300
+	select Size(goodJets) >= 2
 	select Pt(goodJets[0]) > 200
 	select Meff > 800
-	select Size(goodJets) >= 2
 	# Cleaning cuts (paper step)
-	# select <CLEANING_FLAG> == 1
+	# select <CLEANINGFLAG> == 1
 	select Size(goodJets) >= 4
 	select Pt(goodJets[3]) > 100
 	# |m(j1..j4)| < 2.0 TeV
 	select m4j < 2000
 	select Aplanarity > 0.04
-	select metSig > 16
+	select METsqrtHT > 16
 	select Meff > 1000
 
-region SR4j_2200
+region SR4j2200
 	select ALL
 	weight evtweigt 28921/49.5
 	select MET > 300
+	select Size(goodJets) >= 2
 	select Pt(goodJets[0]) > 200
 	select Meff > 800
-	select Size(goodJets) >= 2
 	# Cleaning cuts (paper step)
-	# select <CLEANING_FLAG> == 1
+	# select <CLEANINGFLAG> == 1
 	select Size(goodJets) >= 4
-	# ΔΦ(j_i>3, MET)min > 0.2 (approximated by j4..j6)
+	# ΔΦ(ji>3, MET)min > 0.2 (approximated by j4..j6)
 	select dphi4 > 0.2
 	select Size(goodJets) < 5 || dphi5 > 0.2
 	select Size(goodJets) < 6 || dphi6 > 0.2
 	select Pt(goodJets[3]) > 100
 	select m4j < 2000
 	select Aplanarity > 0.04
-	select metSig > 16
+	select METsqrtHT > 16
 	select Meff > 2200
 
-region SR4j_3400
+region SR4j3400
 	select ALL
 	weight evtweigt 28921/49.5
 	select MET > 300
+	select Size(goodJets) >= 2
 	select Pt(goodJets[0]) > 200
 	select Meff > 800
-	select Size(goodJets) >= 2
 	# Cleaning cuts (paper step)
-	# select <CLEANING_FLAG> == 1
+	# select <CLEANINGFLAG> == 1
 	select Size(goodJets) >= 4
-	# ΔΦ(j_i>3, MET)min > 0.2 (approximated by j4..j6)
+	# ΔΦ(ji>3, MET)min > 0.2 (approximated by j4..j6)
 	select dphi4 > 0.2
 	select Size(goodJets) < 5 || dphi5 > 0.2
 	select Size(goodJets) < 6 || dphi6 > 0.2
@@ -105,23 +105,23 @@ region SR4j_3400
 	select m4j < 2000
 	select Aplanarity > 0.04
 	# RefCutflow indicates a looser MET/sqrt(HT) threshold for SR4j-3400
-	select metSig > 10
+	select METsqrtHT > 10
 	select Meff > 3400
 
-region SR5j_1600
+region SR5j1600
 	select ALL
 	weight evtweigt 28921/49.5
 	select MET > 300
+	select Size(goodJets) >= 2
 	select Pt(goodJets[0]) > 200
 	select Meff > 800
-	select Size(goodJets) >= 2
 	# Cleaning cuts (paper step)
-	# select <CLEANING_FLAG> == 1
+	# select <CLEANINGFLAG> == 1
 	select Size(goodJets) >= 5
-	# ΔΦ(j_i>3, MET)min > 0.2 (approximated by j4..j6)
+	# ΔΦ(ji>3, MET)min > 0.2 (approximated by j4..j6)
 	select dphi4 > 0.2
 	select dphi5 > 0.2
 	select Size(goodJets) < 6 || dphi6 > 0.2
 	select Pt(goodJets[0]) > 600
-	select metSig > 16
+	select METsqrtHT > 16
 	select Meff > 1600

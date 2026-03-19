@@ -1,0 +1,18 @@
+Selection in region SR2j2800,CutFlow_Cutflow
+all Events,25416.0 ±159.42
+ALL,25416.0 ±159.42
+evtweigt 25416/530,1218817.0549621582 ±7645.13
+MET > 300,1016400.1998710632 ±6981.49
+Size(goodJets) >= 2,0.0 ±0.00
+Pt(goodJets[0]) > 200,0.0 ±0.00
+Meff > 800,0.0 ±0.00
+dphi1 > 0.8,0.0 ±0.00
+dphi2 > 0.8,0.0 ±0.00
+Size(goodJets) < 3 || dphi3 > 0.8,0.0 ±0.00
+Size(goodJets) < 4 || dphi4 > 0.4,0.0 ±0.00
+Size(goodJets) < 5 || dphi5 > 0.4,0.0 ±0.00
+Size(goodJets) < 6 || dphi6 > 0.4,0.0 ±0.00
+Pt(goodJets[1]) > 250,0.0 ±0.00
+mjj < 1200,0.0 ±0.00
+METsqrtHT > 16,0.0 ±0.00
+Meff > 2800,0.0 ±0.00

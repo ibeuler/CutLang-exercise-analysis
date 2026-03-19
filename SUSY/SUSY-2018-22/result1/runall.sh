@@ -22,11 +22,7 @@ for adl_path in "${adl_files[@]}"; do
 
     mkdir -p "$analysis_name"
     cp -f "$adl_path" "$analysis_name/"
-    if [[ -f "./common.adl" ]]; then
-        cp -f "./common.adl" "$analysis_name/"
-    fi
-
-    pushd "$analysis_name" >/dev/null
-    CLA "$link/$analysis_name.13_short" DELPHES -i "$analysis_name.adl"
-    popd >/dev/null
+    cd  "$analysis_name"
+    CLA $link/$analysis_name.13_short.root DELPHES -i "$analysis_name.adl"
+    cd ..
 done
