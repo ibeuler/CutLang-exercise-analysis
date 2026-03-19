@@ -1,0 +1,1145 @@
+running: 
+$ ./runall_local_data.sh > yeilds_cutlang.txt
+___ 
+
+Running analysis: GG_direct_1400_1000
+Analysis with Multiple Regions /tmp/CLAdir.fcwIkf
+A region, ID:  0 named:          [SR4j1000] 	 is defined in lines from 1 to 18
+A region, ID:  1 named:          [SR4j2200] 	 is defined in lines from 18 to 38
+A region, ID:  2 named:          [SR4j3400] 	 is defined in lines from 38 to 59
+A region, ID:  3 named:          [SR5j1600] 	 is defined in lines from 59 to 76
+/home/ibeuler/CutLang/CLA/CLA.exe /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/GG_direct_1400_1000/../../DATA/GG_direct_1400_1000.13_short.root -inp DELPHES -BP 4 -EVT 0 -V 5000 -ST 0 -S 0 w
+CLA v2.50.0	compiled on Fri Jan  2 20:04:49 +03 2026	 
+Analysis run count is 4
+~Now using Delphes files.~~~~~~ beta!
+open /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/GG_direct_1400_1000/../../DATA/GG_direct_1400_1000.13_short.root
+RetVal:1
+initialized with the chain...26866
+ #systematic included:0
+	 REGION/ALGO:SR4j1000
+This is a run with name: nominal algo:SR4j1000.
+==Parsing started:
+Parsing finished.==
+We have 12 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 0 BP_1
+	 REGION/ALGO:SR4j2200
+This is a run with name: nominal algo:SR4j2200.
+==Parsing started:
+Parsing finished.==
+We have 15 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 1 BP_2
+	 REGION/ALGO:SR4j3400
+This is a run with name: nominal algo:SR4j3400.
+==Parsing started:
+Parsing finished.==
+We have 15 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 2 BP_3
+	 REGION/ALGO:SR5j1600
+This is a run with name: nominal algo:SR5j1600.
+==Parsing started:
+Parsing finished.==
+We have 13 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 3 BP_4
+End of analysis initialization
+** WARNING: cannot access branch 'Particle', return NULL pointer
+** WARNING: cannot access branch 'FatJet', return NULL pointer
+** WARNING: cannot access branch 'Track', return NULL pointer
+number of entries 26866
+Forced number of entries 26866
+starting entry 0  last:26866
+Processing event 0
+Processing event 5000
+Processing event 10000
+Processing event 15000
+Processing event 20000
+Processing event 25000
+Efficiencies for analysis : BP_1
+						SR4j1000	Based on 26866 events:
+                                                               ALL :      1 +-         0 evt:    26866
+                                               evtweigt 26866/3948 :  6.805 +-      -nan evt: 182822.1774
+                                                         MET > 300 : 0.4745 +-   0.00117 evt: 86742.88302
+                                               Size(goodJets) >= 2 : 0.9995 +-  7.36e-05 evt: 86702.05323
+                                             Pt(goodJets[0]) > 200 : 0.8995 +-   0.00102 evt: 77991.69862
+                                                        Meff > 800 : 0.9867 +-  0.000411 evt: 76950.53905
+                                               Size(goodJets) >= 4 : 0.9138 +-   0.00101 evt: 70315.69862
+                                             Pt(goodJets[3]) > 100 : 0.3837 +-   0.00183 evt: 26981.68441
+                                                        m4j < 2000 : 0.9296 +-   0.00156 evt: 25083.0993
+                                                 Aplanarity > 0.04 :   0.71 +-   0.00287 evt: 17808.59221
+                                                    METsqrtHT > 16 : 0.2881 +-   0.00339 evt: 5130.943265
+                                                       Meff > 1000 : 0.9987 +-  0.000508 evt: 5124.1383
+					 --> Overall efficiency	 =   19.1 % +-   0.24 %
+Bins for analysis : BP_1
+saving...	saved.
+BP_1 finalized.
+Efficiencies for analysis : BP_2
+						SR4j2200	Based on 26866 events:
+                                                               ALL :      1 +-         0 evt:    26866
+                                               evtweigt 26866/3948 :  6.805 +-      -nan evt: 182822.1774
+                                                         MET > 300 : 0.4745 +-   0.00117 evt: 86742.88302
+                                               Size(goodJets) >= 2 : 0.9995 +-  7.36e-05 evt: 86702.05323
+                                             Pt(goodJets[0]) > 200 : 0.8995 +-   0.00102 evt: 77991.69862
+                                                        Meff > 800 : 0.9867 +-  0.000411 evt: 76950.53905
+                                               Size(goodJets) >= 4 : 0.9138 +-   0.00101 evt: 70315.69862
+                                                       dphi4 > 0.2 : 0.9567 +-  0.000767 evt: 67273.87947
+                                 Size(goodJets) < 5 || dphi5 > 0.2 : 0.9665 +-  0.000694 evt: 65021.4362
+                                 Size(goodJets) < 6 || dphi6 > 0.2 : 0.9758 +-  0.000602 evt: 63449.48939
+                                             Pt(goodJets[3]) > 100 :  0.379 +-   0.00193 evt: 24048.74469
+                                                        m4j < 2000 : 0.9338 +-    0.0016 evt: 22456.38299
+                                                 Aplanarity > 0.04 : 0.7142 +-   0.00301 evt: 16039.30143
+                                                    METsqrtHT > 16 :  0.294 +-    0.0036 evt: 4715.840428
+                                                       Meff > 2200 :   0.14 +-   0.00505 evt: 660.0815606
+					 --> Overall efficiency	 =   2.46 % +- 0.0944 %
+Bins for analysis : BP_2
+saving...	saved.
+BP_2 finalized.
+Efficiencies for analysis : BP_3
+						SR4j3400	Based on 26866 events:
+                                                               ALL :      1 +-         0 evt:    26866
+                                               evtweigt 26866/3948 :  6.805 +-      -nan evt: 182822.1774
+                                                         MET > 300 : 0.4745 +-   0.00117 evt: 86742.88302
+                                               Size(goodJets) >= 2 : 0.9995 +-  7.36e-05 evt: 86702.05323
+                                             Pt(goodJets[0]) > 200 : 0.8995 +-   0.00102 evt: 77991.69862
+                                                        Meff > 800 : 0.9867 +-  0.000411 evt: 76950.53905
+                                               Size(goodJets) >= 4 : 0.9138 +-   0.00101 evt: 70315.69862
+                                                       dphi4 > 0.2 : 0.9567 +-  0.000767 evt: 67273.87947
+                                 Size(goodJets) < 5 || dphi5 > 0.2 : 0.9665 +-  0.000694 evt: 65021.4362
+                                 Size(goodJets) < 6 || dphi6 > 0.2 : 0.9758 +-  0.000602 evt: 63449.48939
+                                             Pt(goodJets[3]) > 100 :  0.379 +-   0.00193 evt: 24048.74469
+                                                        m4j < 2000 : 0.9338 +-    0.0016 evt: 22456.38299
+                                                 Aplanarity > 0.04 : 0.7142 +-   0.00301 evt: 16039.30143
+                                                    METsqrtHT > 10 : 0.8914 +-   0.00246 evt: 14297.2305
+                                                       Meff > 3400 : 0.001904 +-  0.000365 evt: 27.21985817
+					 --> Overall efficiency	 =  0.101 % +- 0.0194 %
+Bins for analysis : BP_3
+saving...	saved.
+BP_3 finalized.
+Efficiencies for analysis : BP_4
+						SR5j1600	Based on 26866 events:
+                                                               ALL :      1 +-         0 evt:    26866
+                                               evtweigt 26866/3948 :  6.805 +-      -nan evt: 182822.1774
+                                                         MET > 300 : 0.4745 +-   0.00117 evt: 86742.88302
+                                               Size(goodJets) >= 2 : 0.9995 +-  7.36e-05 evt: 86702.05323
+                                             Pt(goodJets[0]) > 200 : 0.8995 +-   0.00102 evt: 77991.69862
+                                                        Meff > 800 : 0.9867 +-  0.000411 evt: 76950.53905
+                                               Size(goodJets) >= 5 : 0.7079 +-   0.00164 evt: 54473.74116
+                                                       dphi4 > 0.2 : 0.9563 +-  0.000876 evt: 52092.00357
+                                                       dphi5 > 0.2 : 0.9568 +-  0.000891 evt: 49839.56031
+                                 Size(goodJets) < 6 || dphi6 > 0.2 : 0.9685 +-  0.000783 evt: 48267.6135
+                                             Pt(goodJets[0]) > 600 : 0.09178 +-   0.00131 evt: 4430.031917
+                                                    METsqrtHT > 16 : 0.4808 +-   0.00751 evt: 2129.953902
+                                                       Meff > 1600 :      1 +-         0 evt: 2129.953902
+					 --> Overall efficiency	 =   7.93 % +-  0.165 %
+Bins for analysis : BP_4
+saving...	saved.
+BP_4 finalized.
+finished.
+input file Closed.
+end CLA single. Output file:  histoOut-GG_direct_1400_1000.root
+Running analysis: GG_direct_1800_1000
+Analysis with Multiple Regions /tmp/CLAdir.9QGGDr
+A region, ID:  0 named:          [SR4j1000] 	 is defined in lines from 1 to 18
+A region, ID:  1 named:          [SR4j2200] 	 is defined in lines from 18 to 38
+A region, ID:  2 named:          [SR4j3400] 	 is defined in lines from 38 to 59
+A region, ID:  3 named:          [SR5j1600] 	 is defined in lines from 59 to 76
+/home/ibeuler/CutLang/CLA/CLA.exe /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/GG_direct_1800_1000/../../DATA/GG_direct_1800_1000.13_short.root -inp DELPHES -BP 4 -EVT 0 -V 5000 -ST 0 -S 0 w
+CLA v2.50.0	compiled on Fri Jan  2 20:04:49 +03 2026	 
+Analysis run count is 4
+~Now using Delphes files.~~~~~~ beta!
+open /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/GG_direct_1800_1000/../../DATA/GG_direct_1800_1000.13_short.root
+RetVal:1
+initialized with the chain...28090
+ #systematic included:0
+	 REGION/ALGO:SR4j1000
+This is a run with name: nominal algo:SR4j1000.
+==Parsing started:
+Parsing finished.==
+We have 12 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 0 BP_1
+	 REGION/ALGO:SR4j2200
+This is a run with name: nominal algo:SR4j2200.
+==Parsing started:
+Parsing finished.==
+We have 15 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 1 BP_2
+	 REGION/ALGO:SR4j3400
+This is a run with name: nominal algo:SR4j3400.
+==Parsing started:
+Parsing finished.==
+We have 15 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 2 BP_3
+	 REGION/ALGO:SR5j1600
+This is a run with name: nominal algo:SR5j1600.
+==Parsing started:
+Parsing finished.==
+We have 13 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 3 BP_4
+End of analysis initialization
+** WARNING: cannot access branch 'Particle', return NULL pointer
+** WARNING: cannot access branch 'FatJet', return NULL pointer
+** WARNING: cannot access branch 'Track', return NULL pointer
+number of entries 28090
+Forced number of entries 28090
+starting entry 0  last:28090
+Processing event 0
+Processing event 5000
+Processing event 10000
+Processing event 15000
+Processing event 20000
+Processing event 25000
+Efficiencies for analysis : BP_1
+						SR4j1000	Based on 28090 events:
+                                                               ALL :      1 +-         0 evt:    28090
+                                                evtweigt 28090/407 :  69.02 +-      -nan evt: 1938693.054
+                                                         MET > 300 : 0.7686 +-  0.000303 evt: 1490012.259
+                                               Size(goodJets) >= 2 :      1 +-         0 evt: 1490012.259
+                                             Pt(goodJets[0]) > 200 : 0.9955 +-  5.48e-05 evt: 1483317.591
+                                                        Meff > 800 : 0.9998 +-  1.12e-05 evt: 1483041.522
+                                               Size(goodJets) >= 4 : 0.9573 +-  0.000166 evt: 1419752.752
+                                             Pt(goodJets[3]) > 100 : 0.6533 +-  0.000399 evt: 927522.1059
+                                                        m4j < 2000 : 0.8867 +-  0.000329 evt: 822477.9325
+                                                 Aplanarity > 0.04 : 0.7581 +-  0.000472 evt: 623501.3546
+                                                    METsqrtHT > 16 : 0.4553 +-  0.000631 evt: 283867.7298
+                                                       Meff > 1000 :      1 +-         0 evt: 283867.7298
+					 --> Overall efficiency	 = 1.01e+03 % +-   -nan %
+Bins for analysis : BP_1
+saving...	saved.
+BP_1 finalized.
+Efficiencies for analysis : BP_2
+						SR4j2200	Based on 28090 events:
+                                                               ALL :      1 +-         0 evt:    28090
+                                                evtweigt 28090/407 :  69.02 +-      -nan evt: 1938693.054
+                                                         MET > 300 : 0.7686 +-  0.000303 evt: 1490012.259
+                                               Size(goodJets) >= 2 :      1 +-         0 evt: 1490012.259
+                                             Pt(goodJets[0]) > 200 : 0.9955 +-  5.48e-05 evt: 1483317.591
+                                                        Meff > 800 : 0.9998 +-  1.12e-05 evt: 1483041.522
+                                               Size(goodJets) >= 4 : 0.9573 +-  0.000166 evt: 1419752.752
+                                                       dphi4 > 0.2 :  0.954 +-  0.000176 evt: 1354462.484
+                                 Size(goodJets) < 5 || dphi5 > 0.2 : 0.9636 +-  0.000161 evt: 1305115.189
+                                 Size(goodJets) < 6 || dphi6 > 0.2 :  0.973 +-  0.000142 evt: 1269916.418
+                                             Pt(goodJets[3]) > 100 : 0.6503 +-  0.000423 evt: 825859.7752
+                                                        m4j < 2000 :  0.889 +-  0.000346 evt: 734204.938
+                                                 Aplanarity > 0.04 : 0.7574 +-    0.0005 evt: 556071.5535
+                                                    METsqrtHT > 16 : 0.4661 +-  0.000669 evt: 259159.5734
+                                                       Meff > 2200 : 0.3635 +-  0.000945 evt: 94208.47343
+					 --> Overall efficiency	 =    335 % +-   -nan %
+Bins for analysis : BP_2
+saving...	saved.
+BP_2 finalized.
+Efficiencies for analysis : BP_3
+						SR4j3400	Based on 28090 events:
+                                                               ALL :      1 +-         0 evt:    28090
+                                                evtweigt 28090/407 :  69.02 +-      -nan evt: 1938693.054
+                                                         MET > 300 : 0.7686 +-  0.000303 evt: 1490012.259
+                                               Size(goodJets) >= 2 :      1 +-         0 evt: 1490012.259
+                                             Pt(goodJets[0]) > 200 : 0.9955 +-  5.48e-05 evt: 1483317.591
+                                                        Meff > 800 : 0.9998 +-  1.12e-05 evt: 1483041.522
+                                               Size(goodJets) >= 4 : 0.9573 +-  0.000166 evt: 1419752.752
+                                                       dphi4 > 0.2 :  0.954 +-  0.000176 evt: 1354462.484
+                                 Size(goodJets) < 5 || dphi5 > 0.2 : 0.9636 +-  0.000161 evt: 1305115.189
+                                 Size(goodJets) < 6 || dphi6 > 0.2 :  0.973 +-  0.000142 evt: 1269916.418
+                                             Pt(goodJets[3]) > 100 : 0.6503 +-  0.000423 evt: 825859.7752
+                                                        m4j < 2000 :  0.889 +-  0.000346 evt: 734204.938
+                                                 Aplanarity > 0.04 : 0.7574 +-    0.0005 evt: 556071.5535
+                                                    METsqrtHT > 10 : 0.8852 +-  0.000428 evt: 492230.6465
+                                                       Meff > 3400 : 0.003365 +-  8.25e-05 evt: 1656.41272
+					 --> Overall efficiency	 =    5.9 % +-  0.141 %
+Bins for analysis : BP_3
+saving...	saved.
+BP_3 finalized.
+Efficiencies for analysis : BP_4
+						SR5j1600	Based on 28090 events:
+                                                               ALL :      1 +-         0 evt:    28090
+                                                evtweigt 28090/407 :  69.02 +-      -nan evt: 1938693.054
+                                                         MET > 300 : 0.7686 +-  0.000303 evt: 1490012.259
+                                               Size(goodJets) >= 2 :      1 +-         0 evt: 1490012.259
+                                             Pt(goodJets[0]) > 200 : 0.9955 +-  5.48e-05 evt: 1483317.591
+                                                        Meff > 800 : 0.9998 +-  1.12e-05 evt: 1483041.522
+                                               Size(goodJets) >= 5 : 0.7798 +-   0.00034 evt: 1156452.147
+                                                       dphi4 > 0.2 : 0.9554 +-  0.000192 evt: 1104896.301
+                                                       dphi5 > 0.2 : 0.9553 +-  0.000197 evt: 1055549.006
+                                 Size(goodJets) < 6 || dphi6 > 0.2 : 0.9667 +-  0.000175 evt: 1020350.235
+                                             Pt(goodJets[0]) > 600 : 0.2718 +-   0.00044 evt: 277311.0962
+                                                    METsqrtHT > 16 : 0.5015 +-  0.000949 evt: 139069.6513
+                                                       Meff > 1600 :  0.995 +-  0.000188 evt: 138379.4793
+					 --> Overall efficiency	 =    493 % +-   -nan %
+Bins for analysis : BP_4
+saving...	saved.
+BP_4 finalized.
+finished.
+input file Closed.
+end CLA single. Output file:  histoOut-GG_direct_1800_1000.root
+Running analysis: GG_direct_2200_600
+Analysis with Multiple Regions /tmp/CLAdir.FUaDlg
+A region, ID:  0 named:          [SR4j1000] 	 is defined in lines from 1 to 18
+A region, ID:  1 named:          [SR4j2200] 	 is defined in lines from 18 to 38
+A region, ID:  2 named:          [SR4j3400] 	 is defined in lines from 38 to 59
+A region, ID:  3 named:          [SR5j1600] 	 is defined in lines from 59 to 76
+/home/ibeuler/CutLang/CLA/CLA.exe /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/GG_direct_2200_600/../../DATA/GG_direct_2200_600.13_short.root -inp DELPHES -BP 4 -EVT 0 -V 5000 -ST 0 -S 0 w
+CLA v2.50.0	compiled on Fri Jan  2 20:04:49 +03 2026	 
+Analysis run count is 4
+~Now using Delphes files.~~~~~~ beta!
+open /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/GG_direct_2200_600/../../DATA/GG_direct_2200_600.13_short.root
+RetVal:1
+initialized with the chain...28921
+ #systematic included:0
+	 REGION/ALGO:SR4j1000
+This is a run with name: nominal algo:SR4j1000.
+==Parsing started:
+Parsing finished.==
+We have 12 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 0 BP_1
+	 REGION/ALGO:SR4j2200
+This is a run with name: nominal algo:SR4j2200.
+==Parsing started:
+Parsing finished.==
+We have 15 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 1 BP_2
+	 REGION/ALGO:SR4j3400
+This is a run with name: nominal algo:SR4j3400.
+==Parsing started:
+Parsing finished.==
+We have 15 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 2 BP_3
+	 REGION/ALGO:SR5j1600
+This is a run with name: nominal algo:SR5j1600.
+==Parsing started:
+Parsing finished.==
+We have 13 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 3 BP_4
+End of analysis initialization
+** WARNING: cannot access branch 'Particle', return NULL pointer
+** WARNING: cannot access branch 'FatJet', return NULL pointer
+** WARNING: cannot access branch 'Track', return NULL pointer
+number of entries 28921
+Forced number of entries 28921
+starting entry 0  last:28921
+Processing event 0
+Processing event 5000
+Processing event 10000
+Processing event 15000
+Processing event 20000
+Processing event 25000
+Efficiencies for analysis : BP_1
+						SR4j1000	Based on 28921 events:
+                                                               ALL :      1 +-         0 evt:    28921
+                                               evtweigt 28921/49.5 :  584.3 +-      -nan evt: 16897459.65
+                                                         MET > 300 : 0.8982 +-  7.36e-05 evt: 15177390.45
+                                               Size(goodJets) >= 2 :      1 +-  1.59e-06 evt: 15176806.19
+                                             Pt(goodJets[0]) > 200 :      1 +-  1.59e-06 evt: 15176221.93
+                                                        Meff > 800 :      1 +-         0 evt: 15176221.93
+                                               Size(goodJets) >= 4 : 0.9714 +-  4.28e-05 evt: 14741530.53
+                                             Pt(goodJets[3]) > 100 : 0.8433 +-  9.47e-05 evt: 12431940.33
+                                                        m4j < 2000 :  0.326 +-  0.000133 evt: 4053029.894
+                                                 Aplanarity > 0.04 : 0.7124 +-  0.000225 evt: 2887425.939
+                                                    METsqrtHT > 16 : 0.7121 +-  0.000266 evt: 2056020.21
+                                                       Meff > 1000 :      1 +-         0 evt: 2056020.21
+					 --> Overall efficiency	 = 7.11e+03 % +-   -nan %
+Bins for analysis : BP_1
+saving...	saved.
+BP_1 finalized.
+Efficiencies for analysis : BP_2
+						SR4j2200	Based on 28921 events:
+                                                               ALL :      1 +-         0 evt:    28921
+                                               evtweigt 28921/49.5 :  584.3 +-      -nan evt: 16897459.65
+                                                         MET > 300 : 0.8982 +-  7.36e-05 evt: 15177390.45
+                                               Size(goodJets) >= 2 :      1 +-  1.59e-06 evt: 15176806.19
+                                             Pt(goodJets[0]) > 200 :      1 +-  1.59e-06 evt: 15176221.93
+                                                        Meff > 800 :      1 +-         0 evt: 15176221.93
+                                               Size(goodJets) >= 4 : 0.9714 +-  4.28e-05 evt: 14741530.53
+                                                       dphi4 > 0.2 : 0.9506 +-  5.65e-05 evt: 14012955.02
+                                 Size(goodJets) < 5 || dphi5 > 0.2 : 0.9573 +-   5.4e-05 evt: 13414085.82
+                                 Size(goodJets) < 6 || dphi6 > 0.2 : 0.9694 +-   4.7e-05 evt: 13003933.45
+                                             Pt(goodJets[3]) > 100 : 0.8408 +-  0.000101 evt: 10933890.94
+                                                        m4j < 2000 : 0.3316 +-  0.000142 evt: 3625349.646
+                                                 Aplanarity > 0.04 : 0.7128 +-  0.000238 evt: 2584193.631
+                                                    METsqrtHT > 16 : 0.7215 +-  0.000279 evt: 1864382.066
+                                                       Meff > 2200 : 0.9129 +-  0.000207 evt: 1701957.054
+					 --> Overall efficiency	 = 5.88e+03 % +-   -nan %
+Bins for analysis : BP_2
+saving...	saved.
+BP_2 finalized.
+Efficiencies for analysis : BP_3
+						SR4j3400	Based on 28921 events:
+                                                               ALL :      1 +-         0 evt:    28921
+                                               evtweigt 28921/49.5 :  584.3 +-      -nan evt: 16897459.65
+                                                         MET > 300 : 0.8982 +-  7.36e-05 evt: 15177390.45
+                                               Size(goodJets) >= 2 :      1 +-  1.59e-06 evt: 15176806.19
+                                             Pt(goodJets[0]) > 200 :      1 +-  1.59e-06 evt: 15176221.93
+                                                        Meff > 800 :      1 +-         0 evt: 15176221.93
+                                               Size(goodJets) >= 4 : 0.9714 +-  4.28e-05 evt: 14741530.53
+                                                       dphi4 > 0.2 : 0.9506 +-  5.65e-05 evt: 14012955.02
+                                 Size(goodJets) < 5 || dphi5 > 0.2 : 0.9573 +-   5.4e-05 evt: 13414085.82
+                                 Size(goodJets) < 6 || dphi6 > 0.2 : 0.9694 +-   4.7e-05 evt: 13003933.45
+                                             Pt(goodJets[3]) > 100 : 0.8408 +-  0.000101 evt: 10933890.94
+                                                        m4j < 2000 : 0.3316 +-  0.000142 evt: 3625349.646
+                                                 Aplanarity > 0.04 : 0.7128 +-  0.000238 evt: 2584193.631
+                                                    METsqrtHT > 10 : 0.9344 +-  0.000154 evt: 2414757.467
+                                                       Meff > 3400 : 0.1461 +-  0.000227 evt: 352894.6311
+					 --> Overall efficiency	 = 1.22e+03 % +-   -nan %
+Bins for analysis : BP_3
+saving...	saved.
+BP_3 finalized.
+Efficiencies for analysis : BP_4
+						SR5j1600	Based on 28921 events:
+                                                               ALL :      1 +-         0 evt:    28921
+                                               evtweigt 28921/49.5 :  584.3 +-      -nan evt: 16897459.65
+                                                         MET > 300 : 0.8982 +-  7.36e-05 evt: 15177390.45
+                                               Size(goodJets) >= 2 :      1 +-  1.59e-06 evt: 15176806.19
+                                             Pt(goodJets[0]) > 200 :      1 +-  1.59e-06 evt: 15176221.93
+                                                        Meff > 800 :      1 +-         0 evt: 15176221.93
+                                               Size(goodJets) >= 5 :  0.816 +-  9.95e-05 evt: 12384030.8
+                                                       dphi4 > 0.2 : 0.9514 +-  6.11e-05 evt: 11782240.28
+                                                       dphi5 > 0.2 : 0.9492 +-   6.4e-05 evt: 11183371.08
+                                 Size(goodJets) < 6 || dphi6 > 0.2 : 0.9633 +-  5.62e-05 evt: 10773218.71
+                                             Pt(goodJets[0]) > 600 : 0.8167 +-  0.000118 evt: 8798411.01
+                                                    METsqrtHT > 16 : 0.5692 +-  0.000167 evt: 5007715.038
+                                                       Meff > 1600 : 0.9999 +-  4.83e-06 evt: 5007130.776
+					 --> Overall efficiency	 = 1.73e+04 % +-   -nan %
+Bins for analysis : BP_4
+saving...	saved.
+BP_4 finalized.
+finished.
+input file Closed.
+end CLA single. Output file:  histoOut-GG_direct_2200_600.root
+Running analysis: GG_onestepCC_1400_1100_800
+Analysis with Multiple Regions /tmp/CLAdir.9Xjwrb
+A region, ID:  0 named:          [SR6j1000] 	 is defined in lines from 1 to 27
+A region, ID:  1 named:          [SR6j2200] 	 is defined in lines from 27 to 49
+A region, ID:  2 named:          [SR6j3400] 	 is defined in lines from 49 to 71
+/home/ibeuler/CutLang/CLA/CLA.exe /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/GG_onestepCC_1400_1100_800/../../DATA/GG_onestepCC_1400_1100_800.13_short.root -inp DELPHES -BP 3 -EVT 0 -V 5000 -ST 0 -S 0 w
+CLA v2.50.0	compiled on Fri Jan  2 20:04:49 +03 2026	 
+Analysis run count is 3
+~Now using Delphes files.~~~~~~ beta!
+open /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/GG_onestepCC_1400_1100_800/../../DATA/GG_onestepCC_1400_1100_800.13_short.root
+RetVal:1
+initialized with the chain...26883
+ #systematic included:0
+	 REGION/ALGO:SR6j1000
+This is a run with name: nominal algo:SR6j1000.
+==Parsing started:
+Parsing finished.==
+We have 18 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 0 BP_1
+	 REGION/ALGO:SR6j2200
+This is a run with name: nominal algo:SR6j2200.
+==Parsing started:
+Parsing finished.==
+We have 18 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 1 BP_2
+	 REGION/ALGO:SR6j3400
+This is a run with name: nominal algo:SR6j3400.
+==Parsing started:
+Parsing finished.==
+We have 18 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 2 BP_3
+End of analysis initialization
+** WARNING: cannot access branch 'Particle', return NULL pointer
+** WARNING: cannot access branch 'FatJet', return NULL pointer
+** WARNING: cannot access branch 'Track', return NULL pointer
+number of entries 26883
+Forced number of entries 26883
+starting entry 0  last:26883
+Processing event 0
+Processing event 5000
+Processing event 10000
+Processing event 15000
+Processing event 20000
+Processing event 25000
+Efficiencies for analysis : BP_1
+						SR6j1000	Based on 26883 events:
+                                                               ALL :      1 +-         0 evt:    26883
+                                               evtweigt 26883/3948 :  6.809 +-      -nan evt: 183053.6157
+                                                         MET > 300 : 0.4871 +-   0.00117 evt: 89167.39565
+                                               Size(goodJets) >= 2 : 0.9999 +-  2.93e-05 evt: 89160.58638
+                                             Pt(goodJets[0]) > 200 : 0.8664 +-   0.00114 evt: 77251.17248
+                                                        Meff > 800 : 0.9969 +-    0.0002 evt: 77012.84802
+                                               Size(goodJets) >= 6 : 0.8436 +-   0.00131 evt: 64967.24871
+                                                       dphi1 > 0.4 : 0.9908 +-  0.000375 evt: 64368.03292
+                                                       dphi2 > 0.4 : 0.9489 +-  0.000868 evt: 61079.15533
+                                                       dphi3 > 0.4 : 0.9269 +-   0.00105 evt: 56612.27396
+                                                       dphi4 > 0.2 : 0.9609 +-  0.000815 evt: 54399.26108
+                                                       dphi5 > 0.2 : 0.9562 +-  0.000878 evt: 52016.01645
+                                                       dphi6 > 0.2 : 0.9556 +-  0.000903 evt: 49707.67379
+                                              Pt(goodJets[5]) > 75 : 0.3727 +-   0.00217 evt: 18528.02471
+                                                        m6j < 2000 : 0.8405 +-   0.00269 evt: 15572.80136
+                                                 Aplanarity > 0.08 : 0.6533 +-   0.00381 evt: 10173.04995
+                                                    METsqrtHT > 16 : 0.2041 +-     0.004 evt: 2076.827466
+                                                       Meff > 1000 :      1 +-         0 evt: 2076.827466
+					 --> Overall efficiency	 =   7.73 % +-  0.163 %
+Bins for analysis : BP_1
+saving...	saved.
+BP_1 finalized.
+Efficiencies for analysis : BP_2
+						SR6j2200	Based on 26883 events:
+                                                               ALL :      1 +-         0 evt:    26883
+                                               evtweigt 26883/3948 :  6.809 +-      -nan evt: 183053.6157
+                                                         MET > 300 : 0.4871 +-   0.00117 evt: 89167.39565
+                                               Size(goodJets) >= 2 : 0.9999 +-  2.93e-05 evt: 89160.58638
+                                             Pt(goodJets[0]) > 200 : 0.8664 +-   0.00114 evt: 77251.17248
+                                                        Meff > 800 : 0.9969 +-    0.0002 evt: 77012.84802
+                                               Size(goodJets) >= 6 : 0.8436 +-   0.00131 evt: 64967.24871
+                                                       dphi1 > 0.4 : 0.9908 +-  0.000375 evt: 64368.03292
+                                                       dphi2 > 0.4 : 0.9489 +-  0.000868 evt: 61079.15533
+                                                       dphi3 > 0.4 : 0.9269 +-   0.00105 evt: 56612.27396
+                                                       dphi4 > 0.2 : 0.9609 +-  0.000815 evt: 54399.26108
+                                                       dphi5 > 0.2 : 0.9562 +-  0.000878 evt: 52016.01645
+                                                       dphi6 > 0.2 : 0.9556 +-  0.000903 evt: 49707.67379
+                                              Pt(goodJets[5]) > 75 : 0.3727 +-   0.00217 evt: 18528.02471
+                                                        m6j < 2000 : 0.8405 +-   0.00269 evt: 15572.80136
+                                                 Aplanarity > 0.08 : 0.6533 +-   0.00381 evt: 10173.04995
+                                                    METsqrtHT > 16 : 0.2041 +-     0.004 evt: 2076.827466
+                                                       Meff > 2200 : 0.1508 +-   0.00785 evt: 313.2264376
+					 --> Overall efficiency	 =   1.17 % +- 0.0654 %
+Bins for analysis : BP_2
+saving...	saved.
+BP_2 finalized.
+Efficiencies for analysis : BP_3
+						SR6j3400	Based on 26883 events:
+                                                               ALL :      1 +-         0 evt:    26883
+                                               evtweigt 26883/3948 :  6.809 +-      -nan evt: 183053.6157
+                                                         MET > 300 : 0.4871 +-   0.00117 evt: 89167.39565
+                                               Size(goodJets) >= 2 : 0.9999 +-  2.93e-05 evt: 89160.58638
+                                             Pt(goodJets[0]) > 200 : 0.8664 +-   0.00114 evt: 77251.17248
+                                                        Meff > 800 : 0.9969 +-    0.0002 evt: 77012.84802
+                                               Size(goodJets) >= 6 : 0.8436 +-   0.00131 evt: 64967.24871
+                                                       dphi1 > 0.4 : 0.9908 +-  0.000375 evt: 64368.03292
+                                                       dphi2 > 0.4 : 0.9489 +-  0.000868 evt: 61079.15533
+                                                       dphi3 > 0.4 : 0.9269 +-   0.00105 evt: 56612.27396
+                                                       dphi4 > 0.2 : 0.9609 +-  0.000815 evt: 54399.26108
+                                                       dphi5 > 0.2 : 0.9562 +-  0.000878 evt: 52016.01645
+                                                       dphi6 > 0.2 : 0.9556 +-  0.000903 evt: 49707.67379
+                                              Pt(goodJets[5]) > 75 : 0.3727 +-   0.00217 evt: 18528.02471
+                                                        m6j < 2000 : 0.8405 +-   0.00269 evt: 15572.80136
+                                                 Aplanarity > 0.08 : 0.6533 +-   0.00381 evt: 10173.04995
+                                                    METsqrtHT > 10 : 0.8099 +-   0.00389 evt: 8239.217162
+                                                       Meff > 3400 :      0 +-         0 evt:        0
+					 --> Overall efficiency	 =      0 % +-      0 %
+Bins for analysis : BP_3
+saving...	saved.
+BP_3 finalized.
+finished.
+input file Closed.
+end CLA single. Output file:  histoOut-GG_onestepCC_1400_1100_800.root
+Running analysis: GG_onestepCC_2000_1500_1000
+Analysis with Multiple Regions /tmp/CLAdir.zA5zx1
+A region, ID:  0 named:          [SR6j1000] 	 is defined in lines from 1 to 27
+A region, ID:  1 named:          [SR6j2200] 	 is defined in lines from 27 to 49
+A region, ID:  2 named:          [SR6j3400] 	 is defined in lines from 49 to 71
+/home/ibeuler/CutLang/CLA/CLA.exe /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/GG_onestepCC_2000_1500_1000/../../DATA/GG_onestepCC_2000_1500_1000.13_short.root -inp DELPHES -BP 3 -EVT 0 -V 5000 -ST 0 -S 0 w
+CLA v2.50.0	compiled on Fri Jan  2 20:04:49 +03 2026	 
+Analysis run count is 3
+~Now using Delphes files.~~~~~~ beta!
+open /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/GG_onestepCC_2000_1500_1000/../../DATA/GG_onestepCC_2000_1500_1000.13_short.root
+RetVal:1
+initialized with the chain...28543
+ #systematic included:0
+	 REGION/ALGO:SR6j1000
+This is a run with name: nominal algo:SR6j1000.
+==Parsing started:
+Parsing finished.==
+We have 18 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 0 BP_1
+	 REGION/ALGO:SR6j2200
+This is a run with name: nominal algo:SR6j2200.
+==Parsing started:
+Parsing finished.==
+We have 18 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 1 BP_2
+	 REGION/ALGO:SR6j3400
+This is a run with name: nominal algo:SR6j3400.
+==Parsing started:
+Parsing finished.==
+We have 18 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 2 BP_3
+End of analysis initialization
+** WARNING: cannot access branch 'Particle', return NULL pointer
+** WARNING: cannot access branch 'FatJet', return NULL pointer
+** WARNING: cannot access branch 'Track', return NULL pointer
+number of entries 28543
+Forced number of entries 28543
+starting entry 0  last:28543
+Processing event 0
+Processing event 5000
+Processing event 10000
+Processing event 15000
+Processing event 20000
+Processing event 25000
+Efficiencies for analysis : BP_1
+						SR6j1000	Based on 28543 events:
+                                                               ALL :      1 +-         0 evt:    28543
+                                                evtweigt 28543/140 :  203.9 +-      -nan evt: 5819306.039
+                                                         MET > 300 : 0.7383 +-  0.000182 evt: 4296536.996
+                                               Size(goodJets) >= 2 :      1 +-         0 evt: 4296536.996
+                                             Pt(goodJets[0]) > 200 : 0.9886 +-  5.12e-05 evt: 4247606.139
+                                                        Meff > 800 : 0.9998 +-  6.72e-06 evt: 4246790.625
+                                               Size(goodJets) >= 6 : 0.8602 +-  0.000168 evt: 3653300.106
+                                                       dphi1 > 0.4 : 0.9863 +-  6.09e-05 evt: 3603145.977
+                                                       dphi2 > 0.4 : 0.9472 +-  0.000118 evt: 3412927.271
+                                                       dphi3 > 0.4 : 0.9252 +-  0.000142 evt: 3157671.301
+                                                       dphi4 > 0.2 : 0.9603 +-   0.00011 evt: 3032285.98
+                                                       dphi5 > 0.2 :  0.957 +-  0.000117 evt: 2901803.695
+                                                       dphi6 > 0.2 : 0.9558 +-  0.000121 evt: 2773564.074
+                                              Pt(goodJets[5]) > 75 : 0.5296 +-    0.0003 evt: 1468945.101
+                                                        m6j < 2000 :  0.722 +-   0.00037 evt: 1060576.324
+                                                 Aplanarity > 0.08 : 0.7374 +-  0.000427 evt: 782078.1967
+                                                    METsqrtHT > 16 : 0.4184 +-  0.000558 evt: 327225.1057
+                                                       Meff > 1000 :      1 +-         0 evt: 327225.1057
+					 --> Overall efficiency	 = 1.15e+03 % +-   -nan %
+Bins for analysis : BP_1
+saving...	saved.
+BP_1 finalized.
+Efficiencies for analysis : BP_2
+						SR6j2200	Based on 28543 events:
+                                                               ALL :      1 +-         0 evt:    28543
+                                                evtweigt 28543/140 :  203.9 +-      -nan evt: 5819306.039
+                                                         MET > 300 : 0.7383 +-  0.000182 evt: 4296536.996
+                                               Size(goodJets) >= 2 :      1 +-         0 evt: 4296536.996
+                                             Pt(goodJets[0]) > 200 : 0.9886 +-  5.12e-05 evt: 4247606.139
+                                                        Meff > 800 : 0.9998 +-  6.72e-06 evt: 4246790.625
+                                               Size(goodJets) >= 6 : 0.8602 +-  0.000168 evt: 3653300.106
+                                                       dphi1 > 0.4 : 0.9863 +-  6.09e-05 evt: 3603145.977
+                                                       dphi2 > 0.4 : 0.9472 +-  0.000118 evt: 3412927.271
+                                                       dphi3 > 0.4 : 0.9252 +-  0.000142 evt: 3157671.301
+                                                       dphi4 > 0.2 : 0.9603 +-   0.00011 evt: 3032285.98
+                                                       dphi5 > 0.2 :  0.957 +-  0.000117 evt: 2901803.695
+                                                       dphi6 > 0.2 : 0.9558 +-  0.000121 evt: 2773564.074
+                                              Pt(goodJets[5]) > 75 : 0.5296 +-    0.0003 evt: 1468945.101
+                                                        m6j < 2000 :  0.722 +-   0.00037 evt: 1060576.324
+                                                 Aplanarity > 0.08 : 0.7374 +-  0.000427 evt: 782078.1967
+                                                    METsqrtHT > 16 : 0.4184 +-  0.000558 evt: 327225.1057
+                                                       Meff > 2200 : 0.5514 +-  0.000869 evt: 180432.5349
+					 --> Overall efficiency	 =    632 % +-   -nan %
+Bins for analysis : BP_2
+saving...	saved.
+BP_2 finalized.
+Efficiencies for analysis : BP_3
+						SR6j3400	Based on 28543 events:
+                                                               ALL :      1 +-         0 evt:    28543
+                                                evtweigt 28543/140 :  203.9 +-      -nan evt: 5819306.039
+                                                         MET > 300 : 0.7383 +-  0.000182 evt: 4296536.996
+                                               Size(goodJets) >= 2 :      1 +-         0 evt: 4296536.996
+                                             Pt(goodJets[0]) > 200 : 0.9886 +-  5.12e-05 evt: 4247606.139
+                                                        Meff > 800 : 0.9998 +-  6.72e-06 evt: 4246790.625
+                                               Size(goodJets) >= 6 : 0.8602 +-  0.000168 evt: 3653300.106
+                                                       dphi1 > 0.4 : 0.9863 +-  6.09e-05 evt: 3603145.977
+                                                       dphi2 > 0.4 : 0.9472 +-  0.000118 evt: 3412927.271
+                                                       dphi3 > 0.4 : 0.9252 +-  0.000142 evt: 3157671.301
+                                                       dphi4 > 0.2 : 0.9603 +-   0.00011 evt: 3032285.98
+                                                       dphi5 > 0.2 :  0.957 +-  0.000117 evt: 2901803.695
+                                                       dphi6 > 0.2 : 0.9558 +-  0.000121 evt: 2773564.074
+                                              Pt(goodJets[5]) > 75 : 0.5296 +-    0.0003 evt: 1468945.101
+                                                        m6j < 2000 :  0.722 +-   0.00037 evt: 1060576.324
+                                                 Aplanarity > 0.08 : 0.7374 +-  0.000427 evt: 782078.1967
+                                                    METsqrtHT > 10 : 0.8574 +-  0.000395 evt: 670556.6186
+                                                       Meff > 3400 : 0.002128 +-  5.63e-05 evt: 1427.149994
+					 --> Overall efficiency	 =      5 % +-  0.129 %
+Bins for analysis : BP_3
+saving...	saved.
+BP_3 finalized.
+finished.
+input file Closed.
+end CLA single. Output file:  histoOut-GG_onestepCC_2000_1500_1000.root
+Running analysis: GG_onestepCC_2200_1200_200
+Analysis with Multiple Regions /tmp/CLAdir.j05FTy
+A region, ID:  0 named:          [SR6j1000] 	 is defined in lines from 1 to 27
+A region, ID:  1 named:          [SR6j2200] 	 is defined in lines from 27 to 49
+A region, ID:  2 named:          [SR6j3400] 	 is defined in lines from 49 to 71
+/home/ibeuler/CutLang/CLA/CLA.exe /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/GG_onestepCC_2200_1200_200/../../DATA/GG_onestepCC_2200_1200_200.13_short.root -inp DELPHES -BP 3 -EVT 0 -V 5000 -ST 0 -S 0 w
+CLA v2.50.0	compiled on Fri Jan  2 20:04:49 +03 2026	 
+Analysis run count is 3
+~Now using Delphes files.~~~~~~ beta!
+open /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/GG_onestepCC_2200_1200_200/../../DATA/GG_onestepCC_2200_1200_200.13_short.root
+RetVal:1
+initialized with the chain...28933
+ #systematic included:0
+	 REGION/ALGO:SR6j1000
+This is a run with name: nominal algo:SR6j1000.
+==Parsing started:
+Parsing finished.==
+We have 18 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 0 BP_1
+	 REGION/ALGO:SR6j2200
+This is a run with name: nominal algo:SR6j2200.
+==Parsing started:
+Parsing finished.==
+We have 18 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 1 BP_2
+	 REGION/ALGO:SR6j3400
+This is a run with name: nominal algo:SR6j3400.
+==Parsing started:
+Parsing finished.==
+We have 18 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 2 BP_3
+End of analysis initialization
+** WARNING: cannot access branch 'Particle', return NULL pointer
+** WARNING: cannot access branch 'FatJet', return NULL pointer
+** WARNING: cannot access branch 'Track', return NULL pointer
+number of entries 28933
+Forced number of entries 28933
+starting entry 0  last:28933
+Processing event 0
+Processing event 5000
+Processing event 10000
+Processing event 15000
+Processing event 20000
+Processing event 25000
+Efficiencies for analysis : BP_1
+						SR6j1000	Based on 28933 events:
+                                                               ALL :      1 +-         0 evt:    28933
+                                               evtweigt 28933/49.5 :  584.5 +-      -nan evt: 16911485.07
+                                                         MET > 300 :  0.862 +-  8.39e-05 evt: 14578140.85
+                                               Size(goodJets) >= 2 :      1 +-         0 evt: 14578140.85
+                                             Pt(goodJets[0]) > 200 : 0.9999 +-  2.87e-06 evt: 14576387.33
+                                                        Meff > 800 :      1 +-         0 evt: 14576387.33
+                                               Size(goodJets) >= 6 : 0.8828 +-  8.43e-05 evt: 12867879.03
+                                                       dphi1 > 0.4 : 0.9778 +-   4.1e-05 evt: 12582640.55
+                                                       dphi2 > 0.4 : 0.9299 +-   7.2e-05 evt: 11700622.41
+                                                       dphi3 > 0.4 : 0.9152 +-  8.14e-05 evt: 10708717.31
+                                                       dphi4 > 0.2 : 0.9485 +-  6.75e-05 evt: 10157529.04
+                                                       dphi5 > 0.2 : 0.9465 +-  7.06e-05 evt: 9613939.324
+                                                       dphi6 > 0.2 : 0.9454 +-  7.33e-05 evt: 9089053.775
+                                              Pt(goodJets[5]) > 75 : 0.7097 +-  0.000151 evt: 6450597.907
+                                                        m6j < 2000 : 0.1255 +-   0.00013 evt: 809539.5163
+                                                 Aplanarity > 0.08 : 0.6939 +-  0.000512 evt: 561709.3683
+                                                    METsqrtHT > 16 : 0.6618 +-  0.000631 evt: 371745.2219
+                                                       Meff > 1000 :      1 +-         0 evt: 371745.2219
+					 --> Overall efficiency	 = 1.28e+03 % +-   -nan %
+Bins for analysis : BP_1
+saving...	saved.
+BP_1 finalized.
+Efficiencies for analysis : BP_2
+						SR6j2200	Based on 28933 events:
+                                                               ALL :      1 +-         0 evt:    28933
+                                               evtweigt 28933/49.5 :  584.5 +-      -nan evt: 16911485.07
+                                                         MET > 300 :  0.862 +-  8.39e-05 evt: 14578140.85
+                                               Size(goodJets) >= 2 :      1 +-         0 evt: 14578140.85
+                                             Pt(goodJets[0]) > 200 : 0.9999 +-  2.87e-06 evt: 14576387.33
+                                                        Meff > 800 :      1 +-         0 evt: 14576387.33
+                                               Size(goodJets) >= 6 : 0.8828 +-  8.43e-05 evt: 12867879.03
+                                                       dphi1 > 0.4 : 0.9778 +-   4.1e-05 evt: 12582640.55
+                                                       dphi2 > 0.4 : 0.9299 +-   7.2e-05 evt: 11700622.41
+                                                       dphi3 > 0.4 : 0.9152 +-  8.14e-05 evt: 10708717.31
+                                                       dphi4 > 0.2 : 0.9485 +-  6.75e-05 evt: 10157529.04
+                                                       dphi5 > 0.2 : 0.9465 +-  7.06e-05 evt: 9613939.324
+                                                       dphi6 > 0.2 : 0.9454 +-  7.33e-05 evt: 9089053.775
+                                              Pt(goodJets[5]) > 75 : 0.7097 +-  0.000151 evt: 6450597.907
+                                                        m6j < 2000 : 0.1255 +-   0.00013 evt: 809539.5163
+                                                 Aplanarity > 0.08 : 0.6939 +-  0.000512 evt: 561709.3683
+                                                    METsqrtHT > 16 : 0.6618 +-  0.000631 evt: 371745.2219
+                                                       Meff > 2200 : 0.9119 +-  0.000465 evt: 339012.9382
+					 --> Overall efficiency	 = 1.17e+03 % +-   -nan %
+Bins for analysis : BP_2
+saving...	saved.
+BP_2 finalized.
+Efficiencies for analysis : BP_3
+						SR6j3400	Based on 28933 events:
+                                                               ALL :      1 +-         0 evt:    28933
+                                               evtweigt 28933/49.5 :  584.5 +-      -nan evt: 16911485.07
+                                                         MET > 300 :  0.862 +-  8.39e-05 evt: 14578140.85
+                                               Size(goodJets) >= 2 :      1 +-         0 evt: 14578140.85
+                                             Pt(goodJets[0]) > 200 : 0.9999 +-  2.87e-06 evt: 14576387.33
+                                                        Meff > 800 :      1 +-         0 evt: 14576387.33
+                                               Size(goodJets) >= 6 : 0.8828 +-  8.43e-05 evt: 12867879.03
+                                                       dphi1 > 0.4 : 0.9778 +-   4.1e-05 evt: 12582640.55
+                                                       dphi2 > 0.4 : 0.9299 +-   7.2e-05 evt: 11700622.41
+                                                       dphi3 > 0.4 : 0.9152 +-  8.14e-05 evt: 10708717.31
+                                                       dphi4 > 0.2 : 0.9485 +-  6.75e-05 evt: 10157529.04
+                                                       dphi5 > 0.2 : 0.9465 +-  7.06e-05 evt: 9613939.324
+                                                       dphi6 > 0.2 : 0.9454 +-  7.33e-05 evt: 9089053.775
+                                              Pt(goodJets[5]) > 75 : 0.7097 +-  0.000151 evt: 6450597.907
+                                                        m6j < 2000 : 0.1255 +-   0.00013 evt: 809539.5163
+                                                 Aplanarity > 0.08 : 0.6939 +-  0.000512 evt: 561709.3683
+                                                    METsqrtHT > 10 : 0.9417 +-  0.000313 evt: 528977.0847
+                                                       Meff > 3400 : 0.07293 +-  0.000358 evt: 38577.33435
+					 --> Overall efficiency	 =    133 % +-   -nan %
+Bins for analysis : BP_3
+saving...	saved.
+BP_3 finalized.
+finished.
+input file Closed.
+end CLA single. Output file:  histoOut-GG_onestepCC_2200_1200_200.root
+Running analysis: SS_direct_1200_600
+Analysis with Multiple Regions /tmp/CLAdir.B99592
+A region, ID:  0 named:          [SR2j1600] 	 is defined in lines from 1 to 29
+A region, ID:  1 named:          [SR2j2200] 	 is defined in lines from 29 to 51
+A region, ID:  2 named:          [SR2j2800] 	 is defined in lines from 51 to 74
+/home/ibeuler/CutLang/CLA/CLA.exe /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/SS_direct_1200_600/../../DATA/SS_direct_1200_600.13_short.root -inp DELPHES -BP 3 -EVT 0 -V 5000 -ST 0 -S 0 w
+CLA v2.50.0	compiled on Fri Jan  2 20:04:49 +03 2026	 
+Analysis run count is 3
+~Now using Delphes files.~~~~~~ beta!
+open /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/SS_direct_1200_600/../../DATA/SS_direct_1200_600.13_short.root
+RetVal:1
+initialized with the chain...24417
+ #systematic included:0
+	 REGION/ALGO:SR2j1600
+This is a run with name: nominal algo:SR2j1600.
+==Parsing started:
+Parsing finished.==
+We have 16 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 0 BP_1
+	 REGION/ALGO:SR2j2200
+This is a run with name: nominal algo:SR2j2200.
+==Parsing started:
+Parsing finished.==
+We have 15 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 1 BP_2
+	 REGION/ALGO:SR2j2800
+This is a run with name: nominal algo:SR2j2800.
+==Parsing started:
+Parsing finished.==
+We have 16 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 2 BP_3
+End of analysis initialization
+** WARNING: cannot access branch 'Particle', return NULL pointer
+** WARNING: cannot access branch 'FatJet', return NULL pointer
+** WARNING: cannot access branch 'Track', return NULL pointer
+number of entries 24417
+Forced number of entries 24417
+starting entry 0  last:24417
+Processing event 0
+Processing event 5000
+Processing event 10000
+Processing event 15000
+Processing event 20000
+Efficiencies for analysis : BP_1
+						SR2j1600	Based on 24417 events:
+                                                               ALL :      1 +-         0 evt:    24417
+                                               evtweigt 24417/1902 :  12.84 +-      -nan evt: 313454.2062
+                                                         MET > 300 : 0.7614 +-  0.000761 evt: 238675.5376
+                                               Size(goodJets) >= 2 : 0.9931 +-  0.000169 evt: 237032.3325
+                                             Pt(goodJets[0]) > 200 : 0.9919 +-  0.000184 evt: 235119.5391
+                                                        Meff > 800 : 0.9929 +-  0.000173 evt: 233450.659
+                                                       dphi1 > 0.8 : 0.9949 +-  0.000147 evt: 232269.6053
+                                                       dphi2 > 0.8 : 0.9196 +-  0.000564 evt: 213590.9851
+                                 Size(goodJets) < 3 || dphi3 > 0.8 : 0.8616 +-  0.000747 evt: 184026.1312
+                                 Size(goodJets) < 4 || dphi4 > 0.4 : 0.9542 +-  0.000487 evt: 175591.8676
+                                 Size(goodJets) < 5 || dphi5 > 0.4 : 0.9704 +-  0.000405 evt: 170392.6641
+                                 Size(goodJets) < 6 || dphi6 > 0.4 : 0.9865 +-  0.000279 evt: 168094.7445
+                                             Pt(goodJets[1]) > 250 :  0.612 +-   0.00119 evt: 102880.0429
+                                                        mjj < 2000 :  0.986 +-  0.000366 evt: 101442.2385
+                                                    METsqrtHT > 16 : 0.6449 +-    0.0015 evt: 65420.10217
+                                                       Meff > 1600 : 0.6776 +-   0.00183 evt: 44328.02449
+					 --> Overall efficiency	 =    182 % +-   -nan %
+Bins for analysis : BP_1
+saving...	saved.
+BP_1 finalized.
+Efficiencies for analysis : BP_2
+						SR2j2200	Based on 24417 events:
+                                                               ALL :      1 +-         0 evt:    24417
+                                               evtweigt 24417/1902 :  12.84 +-      -nan evt: 313454.2062
+                                                         MET > 300 : 0.7614 +-  0.000761 evt: 238675.5376
+                                               Size(goodJets) >= 2 : 0.9931 +-  0.000169 evt: 237032.3325
+                                             Pt(goodJets[0]) > 200 : 0.9919 +-  0.000184 evt: 235119.5391
+                                                        Meff > 800 : 0.9929 +-  0.000173 evt: 233450.659
+                                                       dphi1 > 0.4 : 0.9977 +-  9.82e-05 evt: 232924.3198
+                                                       dphi2 > 0.4 : 0.9641 +-  0.000386 evt: 224554.244
+                                 Size(goodJets) < 3 || dphi3 > 0.4 : 0.9304 +-  0.000537 evt: 208930.9582
+                                 Size(goodJets) < 4 || dphi4 > 0.2 : 0.9767 +-   0.00033 evt: 204065.5306
+                                 Size(goodJets) < 5 || dphi5 > 0.2 :  0.985 +-  0.000269 evt: 200997.3587
+                                 Size(goodJets) < 6 || dphi6 > 0.2 : 0.9928 +-  0.000188 evt: 199559.5542
+                                             Pt(goodJets[0]) > 600 : 0.2975 +-   0.00102 evt: 59360.78345
+                                                    METsqrtHT > 16 :  0.625 +-   0.00199 evt: 37100.48965
+                                                       Meff > 2200 : 0.3149 +-   0.00241 evt: 11682.1611
+					 --> Overall efficiency	 =   47.8 % +-   0.32 %
+Bins for analysis : BP_2
+saving...	saved.
+BP_2 finalized.
+Efficiencies for analysis : BP_3
+						SR2j2800	Based on 24417 events:
+                                                               ALL :      1 +-         0 evt:    24417
+                                               evtweigt 24417/1902 :  12.84 +-      -nan evt: 313454.2062
+                                                         MET > 300 : 0.7614 +-  0.000761 evt: 238675.5376
+                                               Size(goodJets) >= 2 : 0.9931 +-  0.000169 evt: 237032.3325
+                                             Pt(goodJets[0]) > 200 : 0.9919 +-  0.000184 evt: 235119.5391
+                                                        Meff > 800 : 0.9929 +-  0.000173 evt: 233450.659
+                                                       dphi1 > 0.8 : 0.9949 +-  0.000147 evt: 232269.6053
+                                                       dphi2 > 0.8 : 0.9196 +-  0.000564 evt: 213590.9851
+                                 Size(goodJets) < 3 || dphi3 > 0.8 : 0.8616 +-  0.000747 evt: 184026.1312
+                                 Size(goodJets) < 4 || dphi4 > 0.4 : 0.9542 +-  0.000487 evt: 175591.8676
+                                 Size(goodJets) < 5 || dphi5 > 0.4 : 0.9704 +-  0.000405 evt: 170392.6641
+                                 Size(goodJets) < 6 || dphi6 > 0.4 : 0.9865 +-  0.000279 evt: 168094.7445
+                                             Pt(goodJets[1]) > 250 :  0.612 +-   0.00119 evt: 102880.0429
+                                                        mjj < 1200 : 0.8164 +-   0.00121 evt: 83996.02208
+                                                    METsqrtHT > 16 : 0.7004 +-   0.00158 evt: 58834.44432
+                                                       Meff > 2800 : 0.02051 +-  0.000584 evt: 1206.728729
+					 --> Overall efficiency	 =   4.94 % +-  0.139 %
+Bins for analysis : BP_3
+saving...	saved.
+BP_3 finalized.
+finished.
+input file Closed.
+end CLA single. Output file:  histoOut-SS_direct_1200_600.root
+Running analysis: SS_direct_1400_600
+Analysis with Multiple Regions /tmp/CLAdir.UxXyHo
+A region, ID:  0 named:[commonPreselection] 	 is defined in lines from 1 to 10
+A region, ID:  1 named:          [SR2j1600] 	 is defined in lines from 10 to 39
+A region, ID:  2 named:          [SR2j2200] 	 is defined in lines from 39 to 61
+A region, ID:  3 named:          [SR2j2800] 	 is defined in lines from 61 to 84
+/home/ibeuler/CutLang/CLA/CLA.exe /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/SS_direct_1400_600/../../DATA/SS_direct_1400_600.13_short.root -inp DELPHES -BP 4 -EVT 0 -V 5000 -ST 0 -S 0 w
+CLA v2.50.0	compiled on Fri Jan  2 20:04:49 +03 2026	 
+Analysis run count is 4
+~Now using Delphes files.~~~~~~ beta!
+open /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/SS_direct_1400_600/../../DATA/SS_direct_1400_600.13_short.root
+RetVal:1
+initialized with the chain...25416
+ #systematic included:0
+	 REGION/ALGO:commonPreselection
+This is a run with name: nominal algo:commonPreselection.
+==Parsing started:
+Parsing finished.==
+We have 5 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 0 BP_1
+	 REGION/ALGO:SR2j1600
+This is a run with name: nominal algo:SR2j1600.
+==Parsing started:
+Parsing finished.==
+We have 17 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 1 BP_2
+	 REGION/ALGO:SR2j2200
+This is a run with name: nominal algo:SR2j2200.
+==Parsing started:
+Parsing finished.==
+We have 15 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 2 BP_3
+	 REGION/ALGO:SR2j2800
+This is a run with name: nominal algo:SR2j2800.
+==Parsing started:
+Parsing finished.==
+We have 16 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 3 BP_4
+End of analysis initialization
+** WARNING: cannot access branch 'Particle', return NULL pointer
+** WARNING: cannot access branch 'FatJet', return NULL pointer
+** WARNING: cannot access branch 'Track', return NULL pointer
+number of entries 25416
+Forced number of entries 25416
+starting entry 0  last:25416
+Processing event 0
+Processing event 5000
+Processing event 10000
+Processing event 15000
+Processing event 20000
+Processing event 25000
+Efficiencies for analysis : BP_1
+						commonPreselection	Based on 25416 events:
+                                                               ALL :      1 +-         0 evt:    25416
+                                               evtweigt 24417/1902 :  12.84 +-      -nan evt: 326278.9083
+                                                         MET > 300 : 0.8339 +-  0.000652 evt: 272091.6534
+                                             Pt(goodJets[0]) > 200 :      0 +-         0 evt:        0
+                                                        Meff > 800 :   -nan +-      -nan evt:        0
+					 --> Overall efficiency	 =      0 % +-      0 %
+Bins for analysis : BP_1
+saving...	saved.
+BP_1 finalized.
+Efficiencies for analysis : BP_2
+						SR2j1600	Based on 25416 events:
+                                                               ALL :      1 +-         0 evt:    25416
+                                                evtweigt 25416/530 :  47.95 +-      -nan evt: 1218817.055
+                                                         MET > 300 : 0.8339 +-  0.000337 evt: 1016400.2
+                                               Size(goodJets) >= 1 :      0 +-         0 evt:        0
+                                               Size(goodJets) >= 2 :   -nan +-      -nan evt:        0
+                                             Pt(goodJets[0]) > 200 :   -nan +-      -nan evt:        0
+                                                        Meff > 800 :   -nan +-      -nan evt:        0
+                                                       dphi1 > 0.8 :   -nan +-      -nan evt:        0
+                                                       dphi2 > 0.8 :   -nan +-      -nan evt:        0
+                                 Size(goodJets) < 3 || dphi3 > 0.8 :   -nan +-      -nan evt:        0
+                                 Size(goodJets) < 4 || dphi4 > 0.4 :   -nan +-      -nan evt:        0
+                                 Size(goodJets) < 5 || dphi5 > 0.4 :   -nan +-      -nan evt:        0
+                                 Size(goodJets) < 6 || dphi6 > 0.4 :   -nan +-      -nan evt:        0
+                                             Pt(goodJets[1]) > 250 :   -nan +-      -nan evt:        0
+                                                        mjj < 2000 :   -nan +-      -nan evt:        0
+                                                    METsqrtHT > 16 :   -nan +-      -nan evt:        0
+                                                       Meff > 1600 :   -nan +-      -nan evt:        0
+					 --> Overall efficiency	 =      0 % +-      0 %
+Bins for analysis : BP_2
+saving...	saved.
+BP_2 finalized.
+Efficiencies for analysis : BP_3
+						SR2j2200	Based on 25416 events:
+                                                               ALL :      1 +-         0 evt:    25416
+                                                evtweigt 25416/530 :  47.95 +-      -nan evt: 1218817.055
+                                                         MET > 300 : 0.8339 +-  0.000337 evt: 1016400.2
+                                               Size(goodJets) >= 2 :      0 +-         0 evt:        0
+                                             Pt(goodJets[0]) > 200 :   -nan +-      -nan evt:        0
+                                                        Meff > 800 :   -nan +-      -nan evt:        0
+                                                       dphi1 > 0.4 :   -nan +-      -nan evt:        0
+                                                       dphi2 > 0.4 :   -nan +-      -nan evt:        0
+                                 Size(goodJets) < 3 || dphi3 > 0.4 :   -nan +-      -nan evt:        0
+                                 Size(goodJets) < 4 || dphi4 > 0.2 :   -nan +-      -nan evt:        0
+                                 Size(goodJets) < 5 || dphi5 > 0.2 :   -nan +-      -nan evt:        0
+                                 Size(goodJets) < 6 || dphi6 > 0.2 :   -nan +-      -nan evt:        0
+                                             Pt(goodJets[0]) > 600 :   -nan +-      -nan evt:        0
+                                                    METsqrtHT > 16 :   -nan +-      -nan evt:        0
+                                                       Meff > 2200 :   -nan +-      -nan evt:        0
+					 --> Overall efficiency	 =      0 % +-      0 %
+Bins for analysis : BP_3
+saving...	saved.
+BP_3 finalized.
+Efficiencies for analysis : BP_4
+						SR2j2800	Based on 25416 events:
+                                                               ALL :      1 +-         0 evt:    25416
+                                                evtweigt 25416/530 :  47.95 +-      -nan evt: 1218817.055
+                                                         MET > 300 : 0.8339 +-  0.000337 evt: 1016400.2
+                                               Size(goodJets) >= 2 :      0 +-         0 evt:        0
+                                             Pt(goodJets[0]) > 200 :   -nan +-      -nan evt:        0
+                                                        Meff > 800 :   -nan +-      -nan evt:        0
+                                                       dphi1 > 0.8 :   -nan +-      -nan evt:        0
+                                                       dphi2 > 0.8 :   -nan +-      -nan evt:        0
+                                 Size(goodJets) < 3 || dphi3 > 0.8 :   -nan +-      -nan evt:        0
+                                 Size(goodJets) < 4 || dphi4 > 0.4 :   -nan +-      -nan evt:        0
+                                 Size(goodJets) < 5 || dphi5 > 0.4 :   -nan +-      -nan evt:        0
+                                 Size(goodJets) < 6 || dphi6 > 0.4 :   -nan +-      -nan evt:        0
+                                             Pt(goodJets[1]) > 250 :   -nan +-      -nan evt:        0
+                                                        mjj < 1200 :   -nan +-      -nan evt:        0
+                                                    METsqrtHT > 16 :   -nan +-      -nan evt:        0
+                                                       Meff > 2800 :   -nan +-      -nan evt:        0
+					 --> Overall efficiency	 =      0 % +-      0 %
+Bins for analysis : BP_4
+saving...	saved.
+BP_4 finalized.
+finished.
+input file Closed.
+end CLA single. Output file:  histoOut-SS_direct_1400_600.root
+Running analysis: SS_direct_1600_400
+Analysis with Multiple Regions /tmp/CLAdir.z0iX7z
+A region, ID:  0 named:          [SR2j1600] 	 is defined in lines from 1 to 29
+A region, ID:  1 named:          [SR2j2200] 	 is defined in lines from 29 to 51
+A region, ID:  2 named:          [SR2j2800] 	 is defined in lines from 51 to 74
+/home/ibeuler/CutLang/CLA/CLA.exe /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/SS_direct_1600_400/../../DATA/SS_direct_1600_400.13_short.root -inp DELPHES -BP 3 -EVT 0 -V 5000 -ST 0 -S 0 w
+CLA v2.50.0	compiled on Fri Jan  2 20:04:49 +03 2026	 
+Analysis run count is 3
+~Now using Delphes files.~~~~~~ beta!
+open /home/ibeuler/Desktop/Cutlang_Paper_Analysis/SUSY/SUSY-2018-22/result1/SS_direct_1600_400/../../DATA/SS_direct_1600_400.13_short.root
+RetVal:1
+initialized with the chain...26354
+ #systematic included:0
+	 REGION/ALGO:SR2j1600
+This is a run with name: nominal algo:SR2j1600.
+==Parsing started:
+Parsing finished.==
+We have 16 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 0 BP_1
+	 REGION/ALGO:SR2j2200
+This is a run with name: nominal algo:SR2j2200.
+==Parsing started:
+Parsing finished.==
+We have 15 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 1 BP_2
+	 REGION/ALGO:SR2j2800
+This is a run with name: nominal algo:SR2j2800.
+==Parsing started:
+Parsing finished.==
+We have 16 CutLang Cuts, 2 CutLang objects and 0 Bins
+TRGe:1  TRGm:0
+ => 2 BP_3
+End of analysis initialization
+** WARNING: cannot access branch 'Particle', return NULL pointer
+** WARNING: cannot access branch 'FatJet', return NULL pointer
+** WARNING: cannot access branch 'Track', return NULL pointer
+number of entries 26354
+Forced number of entries 26354
+starting entry 0  last:26354
+Processing event 0
+Processing event 5000
+Processing event 10000
+Processing event 15000
+Processing event 20000
+Processing event 25000
+Efficiencies for analysis : BP_1
+						SR2j1600	Based on 26354 events:
+                                                               ALL :      1 +-         0 evt:    26354
+                                                evtweigt 26354/160 :  164.7 +-      -nan evt: 4340833.064
+                                                         MET > 300 : 0.8925 +-  0.000149 evt: 3874367.281
+                                               Size(goodJets) >= 2 : 0.9956 +-  3.37e-05 evt: 3857237.182
+                                             Pt(goodJets[0]) > 200 :  0.999 +-  1.63e-05 evt: 3853284.082
+                                                        Meff > 800 : 0.9991 +-  1.49e-05 evt: 3849989.832
+                                                       dphi1 > 0.8 : 0.9955 +-  3.41e-05 evt: 3832695.02
+                                                       dphi2 > 0.8 : 0.9081 +-  0.000148 evt: 3480539.709
+                                 Size(goodJets) < 3 || dphi3 > 0.8 : 0.8502 +-  0.000191 evt: 2959059.953
+                                 Size(goodJets) < 4 || dphi4 > 0.4 :  0.948 +-  0.000129 evt: 2805218.484
+                                 Size(goodJets) < 5 || dphi5 > 0.4 : 0.9689 +-  0.000104 evt: 2717920.862
+                                 Size(goodJets) < 6 || dphi6 > 0.4 : 0.9851 +-  7.35e-05 evt: 2677401.588
+                                             Pt(goodJets[1]) > 250 : 0.8434 +-  0.000222 evt: 2258208.291
+                                                        mjj < 2000 : 0.9102 +-   0.00019 evt: 2055447.211
+                                                    METsqrtHT > 16 : 0.8134 +-  0.000272 evt: 1671831.813
+                                                       Meff > 1600 : 0.9604 +-  0.000151 evt: 1605617.391
+					 --> Overall efficiency	 = 6.09e+03 % +-   -nan %
+Bins for analysis : BP_1
+saving...	saved.
+BP_1 finalized.
+Efficiencies for analysis : BP_2
+						SR2j2200	Based on 26354 events:
+                                                               ALL :      1 +-         0 evt:    26354
+                                                evtweigt 26354/160 :  164.7 +-      -nan evt: 4340833.064
+                                                         MET > 300 : 0.8925 +-  0.000149 evt: 3874367.281
+                                               Size(goodJets) >= 2 : 0.9956 +-  3.37e-05 evt: 3857237.182
+                                             Pt(goodJets[0]) > 200 :  0.999 +-  1.63e-05 evt: 3853284.082
+                                                        Meff > 800 : 0.9991 +-  1.49e-05 evt: 3849989.832
+                                                       dphi1 > 0.4 :  0.998 +-  2.26e-05 evt: 3842413.058
+                                                       dphi2 > 0.4 : 0.9583 +-  0.000102 evt: 3682312.514
+                                 Size(goodJets) < 3 || dphi3 > 0.4 : 0.9259 +-  0.000137 evt: 3409383.911
+                                 Size(goodJets) < 4 || dphi4 > 0.2 : 0.9719 +-  8.95e-05 evt: 3313685.952
+                                 Size(goodJets) < 5 || dphi5 > 0.2 : 0.9825 +-   7.2e-05 evt: 3255707.154
+                                 Size(goodJets) < 6 || dphi6 > 0.2 : 0.9911 +-  5.21e-05 evt: 3226717.755
+                                             Pt(goodJets[0]) > 600 : 0.7572 +-  0.000239 evt: 2443345.134
+                                                    METsqrtHT > 16 : 0.7792 +-  0.000265 evt: 1903747.004
+                                                       Meff > 2200 : 0.7866 +-  0.000297 evt: 1497565.995
+					 --> Overall efficiency	 = 5.68e+03 % +-   -nan %
+Bins for analysis : BP_2
+saving...	saved.
+BP_2 finalized.
+Efficiencies for analysis : BP_3
+						SR2j2800	Based on 26354 events:
+                                                               ALL :      1 +-         0 evt:    26354
+                                                evtweigt 26354/160 :  164.7 +-      -nan evt: 4340833.064
+                                                         MET > 300 : 0.8925 +-  0.000149 evt: 3874367.281
+                                               Size(goodJets) >= 2 : 0.9956 +-  3.37e-05 evt: 3857237.182
+                                             Pt(goodJets[0]) > 200 :  0.999 +-  1.63e-05 evt: 3853284.082
+                                                        Meff > 800 : 0.9991 +-  1.49e-05 evt: 3849989.832
+                                                       dphi1 > 0.8 : 0.9955 +-  3.41e-05 evt: 3832695.02
+                                                       dphi2 > 0.8 : 0.9081 +-  0.000148 evt: 3480539.709
+                                 Size(goodJets) < 3 || dphi3 > 0.8 : 0.8502 +-  0.000191 evt: 2959059.953
+                                 Size(goodJets) < 4 || dphi4 > 0.4 :  0.948 +-  0.000129 evt: 2805218.484
+                                 Size(goodJets) < 5 || dphi5 > 0.4 : 0.9689 +-  0.000104 evt: 2717920.862
+                                 Size(goodJets) < 6 || dphi6 > 0.4 : 0.9851 +-  7.35e-05 evt: 2677401.588
+                                             Pt(goodJets[1]) > 250 : 0.8434 +-  0.000222 evt: 2258208.291
+                                                        mjj < 1200 : 0.5781 +-  0.000329 evt: 1305511.227
+                                                    METsqrtHT > 16 :  0.882 +-  0.000282 evt: 1151505.045
+                                                       Meff > 2800 : 0.2548 +-  0.000406 evt: 293352.9516
+					 --> Overall efficiency	 = 1.11e+03 % +-   -nan %
+Bins for analysis : BP_3
+saving...	saved.
+BP_3 finalized.
+finished.
+input file Closed.
+end CLA single. Output file:  histoOut-SS_direct_1600_400.root

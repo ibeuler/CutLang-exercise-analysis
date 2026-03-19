@@ -1,3 +1,7 @@
+running: 
+$ ./get_yeilds_from_cutflow-compare.sh > yeilds_all_compare_tool.txt
+__
+
 Processing folder: GG_direct_1400_1000/
 Regions found: SR4j1000
 SR4j2200
