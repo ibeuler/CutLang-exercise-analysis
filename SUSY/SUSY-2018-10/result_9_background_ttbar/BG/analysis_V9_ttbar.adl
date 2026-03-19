@@ -50,7 +50,10 @@ object bjet
   #select applyHM(ATLASBtageff(Pt(Jet)) == 1)
 
 # -- 
-define Sfactor : ScaleFactor_PILEUP * ScaleFactor_BTAG * ScaleFactor_JVT * ScaleFactor_ELE * ScaleFactor_MUON
+#define Sfactor : ScaleFactor_PILEUP * ScaleFactor_BTAG * ScaleFactor_JVT * ScaleFactor_ELE * ScaleFactor_MUON
+# ScaleFactor_BTAG yerine ScaleFactor_FTAG
+define Sfactor : ScaleFactor_PILEUP * ScaleFactor_FTAG * ScaleFactor_JVT * ScaleFactor_ELE * ScaleFactor_MUON
+
 define Lumi : 139000 # 139 fb-1 
 
 define totweight : xsec * kfac * filteff * mcWeight * Sfactor * Lumi / sum_of_weights
