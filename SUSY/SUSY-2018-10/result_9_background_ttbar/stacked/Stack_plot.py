@@ -14,6 +14,8 @@ INPUTS_DIR = BASE_DIR / "inputs"
 OUT_DIR = BASE_DIR / "out"
 OUT_PDFS_DIR = OUT_DIR / "pdfs"
 OUT_CSV_DIR = OUT_DIR / "csv"
+OUT_LOG_DIR = OUT_DIR / "logscale"
+OUT_LOG_PDFS_DIR = OUT_LOG_DIR / "pdfs"
 
 
 def _pick_input_file(filename: str) -> str:
@@ -26,6 +28,7 @@ def _pick_input_file(filename: str) -> str:
 
 OUT_PDFS_DIR.mkdir(parents=True, exist_ok=True)
 OUT_CSV_DIR.mkdir(parents=True, exist_ok=True)
+OUT_LOG_PDFS_DIR.mkdir(parents=True, exist_ok=True)
 
 ttbar = ROOT.TFile(_pick_input_file("ttbar.root"), "READ")
 signal = ROOT.TFile(_pick_input_file("susy-signal.root"), "READ")
@@ -63,10 +66,22 @@ def _style_hist(hist, *, fill_color: int, line_color: int = 1):
 	hist.SetLineWidth(2)
 
 
-def _draw_stack_on_canvas(*, canvas, title: str, x_title: str, y_title: str, region: str, ttbar_hist, signal_hist):
+def _positive_min(hist) -> float | None:
+	min_pos = None
+	for i in range(1, hist.GetNbinsX() + 1):
+		val = float(hist.GetBinContent(i))
+		if val <= 0:
+			continue
+		if min_pos is None or val < min_pos:
+			min_pos = val
+	return min_pos
+
+
+def _draw_stack_on_canvas(*, canvas, title: str, x_title: str, y_title: str, region: str, ttbar_hist, signal_hist, logy: bool = False):
 	canvas.Clear()
 	canvas.cd()
 	canvas.SetTicks(1, 1)
+	canvas.SetLogy(bool(logy))
 
 	# Colors chosen to be readable in print.
 	_style_hist(ttbar_hist, fill_color=ROOT.kOrange - 2, line_color=ROOT.kOrange + 3)
@@ -79,6 +94,19 @@ def _draw_stack_on_canvas(*, canvas, title: str, x_title: str, y_title: str, reg
 	# Draw background first, then signal on top.
 	stack.Add(ttbar_hist)
 	stack.Add(signal_hist)
+
+	max_val = max(float(ttbar_hist.GetMaximum()), float(signal_hist.GetMaximum()))
+	if logy:
+		min_tt = _positive_min(ttbar_hist)
+		min_sig = _positive_min(signal_hist)
+		mins = [v for v in (min_tt, min_sig) if v is not None]
+		min_val = min(mins) if mins else 1e-3
+		stack.SetMinimum(max(min_val * 0.5, 1e-6))
+		stack.SetMaximum(max(max_val * 50.0, 1.0))
+	else:
+		stack.SetMinimum(0.0)
+		stack.SetMaximum(max_val * 1.35)
+
 	stack.Draw("hist")
 
 	leg = ROOT.TLegend(0.62, 0.72, 0.88, 0.88)
@@ -97,7 +125,7 @@ def _draw_stack_on_canvas(*, canvas, title: str, x_title: str, y_title: str, reg
 	return stack, leg
 
 
-def _make_multipage_pdf(*, out_pdf: str, title: str, x_title: str, y_title: str, ttbar_path: str, signal_path: str):
+def _make_multipage_pdf(*, out_pdf: str, title: str, x_title: str, y_title: str, ttbar_path: str, signal_path: str, logy: bool = False):
 	canvas = ROOT.TCanvas("c", "c", 900, 700)
 	canvas.Print(out_pdf + "[")
 
@@ -112,6 +140,7 @@ def _make_multipage_pdf(*, out_pdf: str, title: str, x_title: str, y_title: str,
 			region=region,
 			ttbar_hist=ttbar_hist,
 			signal_hist=signal_hist,
+			logy=logy,
 		)
 		# Keep stack/legend alive until AFTER printing this page.
 		canvas.Print(out_pdf)
@@ -331,6 +360,16 @@ _make_multipage_pdf(
 )
 
 _make_multipage_pdf(
+	out_pdf=str(OUT_LOG_PDFS_DIR / "cutflow_plots.pdf"),
+	title="Cutflow",
+	x_title="Cutflow step",
+	y_title="Events",
+	ttbar_path="{region}/cutflow",
+	signal_path="{region}/cutflow",
+	logy=True,
+)
+
+_make_multipage_pdf(
 	out_pdf=str(OUT_PDFS_DIR / "Meff_plots.pdf"),
 	title="M_{eff}",
 	x_title="M_{eff} [GeV]",
@@ -340,12 +379,32 @@ _make_multipage_pdf(
 )
 
 _make_multipage_pdf(
+	out_pdf=str(OUT_LOG_PDFS_DIR / "Meff_plots.pdf"),
+	title="M_{eff}",
+	x_title="M_{eff} [GeV]",
+	y_title="Events",
+	ttbar_path="{region}/bincounts",
+	signal_path="{region}/bincounts",
+	logy=True,
+)
+
+_make_multipage_pdf(
 	out_pdf=str(OUT_PDFS_DIR / "MTL_plots.pdf"),
 	title=r"M_{T}^{\\ell}",
 	x_title=r"M_{T}^{\\ell} [GeV]",
 	y_title="Events",
 	ttbar_path="{region}/hist_mtl",
 	signal_path="{region}/hist_mtl",
+)
+
+_make_multipage_pdf(
+	out_pdf=str(OUT_LOG_PDFS_DIR / "MTL_plots.pdf"),
+	title=r"M_{T}^{\\ell}",
+	x_title=r"M_{T}^{\\ell} [GeV]",
+	y_title="Events",
+	ttbar_path="{region}/hist_mtl",
+	signal_path="{region}/hist_mtl",
+	logy=True,
 )
 
 ttbar.Close()

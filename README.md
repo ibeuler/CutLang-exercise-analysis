@@ -14,3 +14,9 @@ For CutLang syntax and workflow documentation, see the [CutLang documentation](h
 - `13TevATLASOpenDatarelease/` – ROOT files, analysis definitions (`.adl`), plotting scripts, and LaTeX reports
 - `SUSY/` – SUSY-specific analysis studies
 
+## Reference papers
+### SUSY 2018-10
+ [link](https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SUSY-2018-10/)
+
+### SUSY 2018-22
+ [link](https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SUSY-2018-22/) 
