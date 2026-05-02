@@ -1,6 +1,6 @@
 # stacked (ttbar vs SUSY signal)
 
-This folder contains a small ROOT/PyROOT plotting workflow that stacks `ttbar` (background) and a SUSY signal for several analysis regions.
+This folder contains a small ROOT/PyROOT plotting workflow that plots `ttbar` (background) and overlays a SUSY signal (as a dashed line) for several analysis regions. Log-scale plots use fixed y-axis limits (10^-1 to 10^6) for consistent cross-region comparison, except for cutflows.
 
 ## Inputs
 
@@ -31,6 +31,12 @@ From this directory:
 
 ## Outputs
 
-- Final PDFs (paper deliverables): `out/pdfs/`
-- Intermediate CSVs: `out/csv/`
+- Final PDFs (paper deliverables):
+  - `out/pdfs/`: Multipage plots (linear scale) for cutflows, Meff, and MTL, as well as rendered PDF tables (cutflows, final yields, histogram integrals).
+  - `out/logscale/pdfs/`: Log-scale versions of the plots.
+- Intermediate CSVs: `out/csv/` (cutflow tables, final yields, and integrals).
 - Optional snapshot artifacts: `artifacts/`
+
+### Features of Plot Outputs
+- **Signal Overlay:** The SUSY signal is overlaid as a dashed line with no fill (rather than stacked) on top of the solid `ttbar` background to prevent it from being hidden.
+- **Log-Scale Consistency:** Fixed y-axis scaling (10^-1 to 10^6) is applied to all log-scale kinematic plots (Meff, MTL) to allow easy visual comparison across regions. Cutflow log plots retain dynamic scaling.
