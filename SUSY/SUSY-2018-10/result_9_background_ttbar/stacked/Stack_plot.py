@@ -77,7 +77,7 @@ def _positive_min(hist) -> float | None:
 	return min_pos
 
 
-def _draw_stack_on_canvas(*, canvas, title: str, x_title: str, y_title: str, region: str, ttbar_hist, signal_hist, logy: bool = False):
+def _draw_stack_on_canvas(*, canvas, title: str, x_title: str, y_title: str, region: str, ttbar_hist, signal_hist, logy: bool = False, is_cutflow: bool = False):
 	canvas.Clear()
 	canvas.cd()
 	canvas.SetTicks(1, 1)
@@ -85,36 +85,45 @@ def _draw_stack_on_canvas(*, canvas, title: str, x_title: str, y_title: str, reg
 
 	# Colors chosen to be readable in print.
 	_style_hist(ttbar_hist, fill_color=ROOT.kOrange - 2, line_color=ROOT.kOrange + 3)
-	_style_hist(signal_hist, fill_color=ROOT.kAzure - 9, line_color=ROOT.kAzure + 2)
+	
+	# Signal is dashed lines, no fill
+	signal_hist.SetFillStyle(0)
+	signal_hist.SetLineColor(ROOT.kAzure + 2)
+	signal_hist.SetLineStyle(2)
+	signal_hist.SetLineWidth(3)
 
 	stack = ROOT.THStack(
 		f"stack_{region}",
 		f"{title} - {region};{x_title};{y_title}",
 	)
-	# Draw background first, then signal on top.
+	# Draw background first
 	stack.Add(ttbar_hist)
-	stack.Add(signal_hist)
 
 	max_val = max(float(ttbar_hist.GetMaximum()), float(signal_hist.GetMaximum()))
 	if logy:
-		min_tt = _positive_min(ttbar_hist)
-		min_sig = _positive_min(signal_hist)
-		mins = [v for v in (min_tt, min_sig) if v is not None]
-		min_val = min(mins) if mins else 1e-3
-		stack.SetMinimum(max(min_val * 0.5, 1e-6))
-		stack.SetMaximum(max(max_val * 50.0, 1.0))
+		if is_cutflow:
+			min_tt = _positive_min(ttbar_hist)
+			min_sig = _positive_min(signal_hist)
+			mins = [v for v in (min_tt, min_sig) if v is not None]
+			min_val = min(mins) if mins else 1e-3
+			stack.SetMinimum(max(min_val * 0.5, 1e-6))
+			stack.SetMaximum(max(max_val * 50.0, 1.0))
+		else:
+			stack.SetMinimum(1e-1)
+			stack.SetMaximum(1e6)
 	else:
 		stack.SetMinimum(0.0)
 		stack.SetMaximum(max_val * 1.35)
 
 	stack.Draw("hist")
+	signal_hist.Draw("hist same")
 
 	leg = ROOT.TLegend(0.62, 0.72, 0.88, 0.88)
 	leg.SetBorderSize(0)
 	leg.SetFillStyle(0)
 	leg.SetHeader(f"Region: {region}")
 	leg.AddEntry(ttbar_hist, "t#bar{t} (BG)", "f")
-	leg.AddEntry(signal_hist, "SUSY signal", "f")
+	leg.AddEntry(signal_hist, "SUSY signal", "l")
 	leg.Draw()
 
 	canvas.Modified()
@@ -125,7 +134,7 @@ def _draw_stack_on_canvas(*, canvas, title: str, x_title: str, y_title: str, reg
 	return stack, leg
 
 
-def _make_multipage_pdf(*, out_pdf: str, title: str, x_title: str, y_title: str, ttbar_path: str, signal_path: str, logy: bool = False):
+def _make_multipage_pdf(*, out_pdf: str, title: str, x_title: str, y_title: str, ttbar_path: str, signal_path: str, logy: bool = False, is_cutflow: bool = False):
 	canvas = ROOT.TCanvas("c", "c", 900, 700)
 	canvas.Print(out_pdf + "[")
 
@@ -141,6 +150,7 @@ def _make_multipage_pdf(*, out_pdf: str, title: str, x_title: str, y_title: str,
 			ttbar_hist=ttbar_hist,
 			signal_hist=signal_hist,
 			logy=logy,
+			is_cutflow=is_cutflow,
 		)
 		# Keep stack/legend alive until AFTER printing this page.
 		canvas.Print(out_pdf)
@@ -357,6 +367,7 @@ _make_multipage_pdf(
 	y_title="Events",
 	ttbar_path="{region}/cutflow",
 	signal_path="{region}/cutflow",
+	is_cutflow=True,
 )
 
 _make_multipage_pdf(
@@ -367,6 +378,7 @@ _make_multipage_pdf(
 	ttbar_path="{region}/cutflow",
 	signal_path="{region}/cutflow",
 	logy=True,
+	is_cutflow=True,
 )
 
 _make_multipage_pdf(
